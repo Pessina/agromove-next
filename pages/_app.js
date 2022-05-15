@@ -49,6 +49,7 @@ export default class Layout extends Component {
             commodities? Ferramentas de análise? Nossa missão é capacitar nossos
             clientes a tomarem decisões lucrativas em mercados turbulentos."
           />
+          <link rel="icon" href="/favicon.jpg" />
           <html lang="pt" />
         </Head>
         <Header />

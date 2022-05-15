@@ -6,13 +6,10 @@ import { Container, Form, Grid } from "semantic-ui-react";
 import { radioJobs } from "../utils/constants";
 
 const FormsPage = () => {
-  useEffect(() => {
-    configurePhoneInput();
-  }, []);
-
+  const router = useRouter();
   const {
     query: { keyword },
-  } = useRouter();
+  } = router;
 
   useEffect(() => {
     onChangeForm({ name: "email", value: keyword });
@@ -26,6 +23,9 @@ const FormsPage = () => {
   });
 
   const onChangeForm = ({ name, value }) => {
+    if (name === "phone") {
+      value = parsePhone(value);
+    }
     setFormValues((prevState) => ({ ...prevState, [name]: [value] }));
   };
 
@@ -73,55 +73,44 @@ const FormsPage = () => {
     />,
   ];
 
-  const configurePhoneInput = () => {
-    const phone = document.getElementById("phone");
-    if (phone) {
-      phone.addEventListener("input", () => {
-        let numbers = phone.value.match(/\d+/g)
-          ? phone.value.match(/\d+/g)
-          : [];
-        numbers = numbers.join("");
-        if (numbers.length <= 2) {
-          phone.value = numbers.slice(0, 2);
-        } else if (numbers.length > 2 && numbers.length <= 7) {
-          phone.value = "(" + numbers.slice(0, 2) + ") " + numbers.slice(2, 7);
-        } else if (numbers.length > 7 && numbers.length <= 10) {
-          phone.value =
-            "(" +
-            numbers.slice(0, 2) +
-            ") " +
-            numbers.slice(2, 6) +
-            "-" +
-            numbers.slice(6, 10);
-        } else {
-          phone.value =
-            "(" +
-            numbers.slice(0, 2) +
-            ") " +
-            numbers.slice(2, 7) +
-            "-" +
-            numbers.slice(7, 11);
-        }
-      });
+  const parsePhone = (phone) => {
+    let numbers = phone.match(/\d+/g) ? phone.match(/\d+/g) : [];
+    numbers = numbers.join("");
+
+    let ret = "";
+    if (numbers.length <= 2) {
+      ret = numbers.slice(0, 2);
+    } else if (numbers.length > 2 && numbers.length <= 7) {
+      ret = "(" + numbers.slice(0, 2) + ") " + numbers.slice(2, 7);
+    } else if (numbers.length > 7 && numbers.length <= 10) {
+      ret =
+        "(" +
+        numbers.slice(0, 2) +
+        ") " +
+        numbers.slice(2, 6) +
+        "-" +
+        numbers.slice(6, 10);
+    } else {
+      ret =
+        "(" +
+        numbers.slice(0, 2) +
+        ") " +
+        numbers.slice(2, 7) +
+        "-" +
+        numbers.slice(7, 11);
     }
+
+    return ret;
   };
 
   const onSubmit = () => {
-    emailjs
-      .send(
-        "service_o4yhuhe",
-        "template_bt2mm3i",
-        formsValues,
-        "xbaZfwiULKePuD2cD"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    emailjs.send(
+      "service_o4yhuhe",
+      "template_bt2mm3i",
+      formsValues,
+      "xbaZfwiULKePuD2cD"
+    );
+    router.push("/forms-thanks");
   };
 
   return (
