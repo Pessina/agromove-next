@@ -1,16 +1,189 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.MainSection {
+  height: 600px;
+}
+.MainSection Form {
+  width: 50%;
+  margin: 40px auto;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@media (max-width: 768px) {
+  .MainSection {
+    height: 38em;
+  }
+  .MainSection Form {
+    width: 80%;
+    margin: 20px auto;
+  }
 }
 
-* {
-  box-sizing: border-box;
+.Hero {
+  padding: 130px 8%;
+}
+
+@media (max-width: 768px) {
+  .Hero {
+    padding: 40px 4%;
+  }
+}
+
+.GridCards {
+  padding: 100px 0px;
+}
+
+@media (max-width: 768px) {
+  .GridCards {
+    padding: 32px 0px;
+  }
+}
+
+.Card {
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0px 0px 3px rgba(0, 0, 0, 0.23);
+  padding: 52px 32px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .Card {
+    margin: 16px 0px;
+  }
+}
+
+.Review {
+  padding: 42px 0px;
+}
+
+.Video {
+  padding: 72px 0px;
+}
+@media (max-width: 768px) {
+  .Video {
+    padding: 40px 0px;
+  }
+}
+
+.Contact {
+  padding: 72px 0px;
+}
+.Contact Form {
+  width: 50%;
+  margin: 40px auto;
+}
+
+@media (max-width: 768px) {
+  .Contact {
+    padding: 40px 0px;
+  }
+  .Contact Form {
+    width: 80%;
+    margin: 20px auto;
+  }
+}
+
+.Forms {
+  padding: 72px 0px;
+}
+@media (max-width: 768px) {
+  .Forms {
+    padding: 40px 0px;
+  }
+}
+
+/* latin-ext */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Barlow Regular"), local("Barlow-Regular"),
+    url(https://fonts.gstatic.com/s/barlow/v1/7cHpv4kjgoGqM7E_Ass52Hs.woff2)
+      format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Barlow Regular"), local("Barlow-Regular"),
+    url(https://fonts.gstatic.com/s/barlow/v1/7cHpv4kjgoGqM7E_DMs5.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Barlow Bold"), local("Barlow-Bold"),
+    url(https://fonts.gstatic.com/s/barlow/v1/7cHqv4kjgoGqM7E3t-4s6VospT4.woff2)
+      format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Barlow";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Barlow Bold"), local("Barlow-Bold"),
+    url(https://fonts.gstatic.com/s/barlow/v1/7cHqv4kjgoGqM7E3t-4s51os.woff2)
+      format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+h1 {
+  font-size: 2.6em !important;
+  font-family: Barlow !important;
+}
+
+h2 {
+  font-size: 2em !important;
+  font-family: Barlow !important;
+}
+
+p {
+  font-size: 1.2em !important;
+  font-family: Barlow !important;
+}
+
+b {
+  font-size: 1.4em !important;
+  font-family: Barlow !important;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em !important;
+    font-family: Barlow !important;
+  }
+
+  h2 {
+    font-size: 1.6em !important;
+    font-family: Barlow !important;
+  }
+
+  p {
+    font-size: 1em !important;
+    font-family: Barlow !important;
+  }
+
+  b {
+    font-size: 1.2em !important;
+    font-family: Barlow !important;
+  }
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+:focus {
+  outline: -webkit-focus-ring-color auto 0px;
 }
