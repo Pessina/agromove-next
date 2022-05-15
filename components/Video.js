@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { Embed, Container } from 'semantic-ui-react';
+import React, { Component } from "react";
+import { Container, Embed } from "semantic-ui-react";
 
 export default class Video extends Component {
   render() {
-    const {
-      id
-    } = this.props;
+    const { id } = this.props;
 
     return (
       <Container className="Video" textAlign="center" text>
@@ -17,7 +15,9 @@ export default class Video extends Component {
           autoplay={false}
           icon={null}
           style={{
-            minHeight: '200px', minWidth: '100px', margin: '32px 0px'
+            minHeight: "200px",
+            minWidth: "100px",
+            margin: "32px 0px",
           }}
           brandedUI={1}
         />

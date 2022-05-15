@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Form, Grid } from "semantic-ui-react";
 
 import { radioJobs } from "../utils/constants";
@@ -11,23 +11,12 @@ const FormsPage = () => {
     query: { keyword },
   } = router;
 
-  useEffect(() => {
-    onChangeForm({ name: "email", value: keyword });
-  }, [keyword]);
-
   const [formsValues, setFormValues] = useState({
     name: "",
     email: keyword,
     phone: "",
     area: "",
   });
-
-  const onChangeForm = ({ name, value }) => {
-    if (name === "phone") {
-      value = parsePhone(value);
-    }
-    setFormValues((prevState) => ({ ...prevState, [name]: [value] }));
-  };
 
   const formElements = [
     <Form.Input
@@ -72,6 +61,14 @@ const FormsPage = () => {
       onChange={(e, target) => onChangeForm(target)}
     />,
   ];
+
+  const onChangeForm = ({ name, value }) => {
+    if (name === "phone") {
+      value = parsePhone(value);
+    }
+
+    setFormValues((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   const parsePhone = (phone) => {
     let numbers = phone.match(/\d+/g) ? phone.match(/\d+/g) : [];

@@ -1,6 +1,6 @@
-import React from "react";
-import { Container, Button } from "semantic-ui-react";
 import Link from "next/link";
+import React from "react";
+import { Button, Container } from "semantic-ui-react";
 
 const FormsPage = () => {
   return (
@@ -13,11 +13,9 @@ const FormsPage = () => {
       >
         <h2>Obrigado por entrar em contato com a Agromove</h2>
         <p>Entraremos em contato o mais breve possível</p>
-        <Link href="/">
-          <Button style={{ backgroundColor: "#2E6B34", color: "#FFFFFF" }}>
-            Inicio
-          </Button>
-        </Link>
+        <Button className="button--green">
+          <Link href="/">Inicio</Link>
+        </Button>
       </Container>
     </>
   );

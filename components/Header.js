@@ -28,7 +28,7 @@ const Header = () => {
       <Menu borderless fixed="top">
         <Container>
           <Menu.Item only="computer">
-            <Link href="/">
+            <Link href="/" passHref>
               <Image src={logo.src} size="small" alt="logo" />
             </Link>
           </Menu.Item>

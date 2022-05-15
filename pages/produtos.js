@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
-import GridCards from "../components/GridCards";
 import Footer from "../components/Footer";
-
+import GridCards from "../components/GridCards";
 import computer from "../public/computer.svg";
+import ebook from "../public/ebook.svg";
 import information from "../public/information.svg";
 import lecture from "../public/seminar.svg";
 import farm from "../public/turbine.svg";
 import course from "../public/video-lecture.svg";
-import ebook from "../public/ebook.svg";
 
 const cardsFeatures = [
   {

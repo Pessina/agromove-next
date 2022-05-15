@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Grid, Image } from "semantic-ui-react";
+
 import { modalImage } from "../utils/utils";
 
 export default class Hero extends Component {
