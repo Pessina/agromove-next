@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Image, Container } from "semantic-ui-react";
+import { Container, Grid, Image } from "semantic-ui-react";
 
 export default class Review extends Component {
   styles = {
@@ -12,8 +12,6 @@ export default class Review extends Component {
 
   render() {
     const { person, text, reversed } = this.props;
-
-    console.log(person.image);
 
     return (
       <Container centered className="Review">

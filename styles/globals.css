@@ -187,3 +187,12 @@ b {
 :focus {
   outline: -webkit-focus-ring-color auto 0px;
 }
+
+.button--green > button {
+  background-color: #2e6b34 !important;
+  width: 250px;
+}
+
+.button--green > button > a {
+  color: white !important;
+}

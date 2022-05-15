@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Image, Container, Icon } from "semantic-ui-react";
 
-import { styleCenter } from "../utils/utils";
 import logo from "../public/logo.png";
 
 export default class Footer extends Component {
@@ -19,7 +18,7 @@ export default class Footer extends Component {
           <Grid stackable textAlign="center">
             <Grid.Row columns={2}>
               <Grid.Column verticalAlign="middle">
-                <Image src={logo} size="large" />
+                <Image src={logo.src} size="large" alt="logo" />
               </Grid.Column>
               <Grid.Column style={{ padding: "32px" }}>
                 <p>WhatsApp: (14) 9 9134-8132</p>
@@ -28,24 +27,31 @@ export default class Footer extends Component {
                   <p>blog.agromove.com.br</p>
                 </a>
                 <div style={{ marginTop: "32px" }}>
-                  <a href="https://www.facebook.com/Agromove/" target="_blank">
+                  <a
+                    href="https://www.facebook.com/Agromove/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <Icon name="facebook" size="big" />
                   </a>
                   <a
                     href="https://www.linkedin.com/company/agromove/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <Icon name="linkedin" size="big" />
                   </a>
                   <a
                     href="https://www.instagram.com/agromove/?hl=pt-br"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <Icon name="instagram" size="big" />
                   </a>
                   <a
                     href="https://www.youtube.com/channel/UCjLsgqGSx3F51IKU3TD___g"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <Icon name="youtube" size="big" />
                   </a>

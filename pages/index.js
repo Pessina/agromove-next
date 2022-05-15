@@ -1,43 +1,37 @@
-import React, { Component } from "react";
-
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Grid, Image, Container } from "semantic-ui-react";
+import React, { Component } from "react";
+import Slider from "react-slick";
+import { Container, Grid, Image } from "semantic-ui-react";
 
-import MainSection from "../components/MainSection";
-import Hero from "../components/Hero";
-import GridCards from "../components/GridCards";
-import Review from "../components/Review";
-import Video from "../components/Video";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-
-import probabilidadeQuedaBoi from "../public/probabilidade_queda_boi.jpg";
-import tabelaProbabilidadeQueda from "../public/tabela_probabilidade_queda.jpg";
+import GridCards from "../components/GridCards";
+import Hero from "../components/Hero";
+import MainSection from "../components/MainSection";
+import Review from "../components/Review";
+import Video from "../components/Video";
 import avatarAlberto from "../public/avatar_alberto.jpg";
-
+import avatarFelipeMoura from "../public/avatar_felipe_moura.jpg";
 import computer from "../public/computer.svg";
 import connect from "../public/connect.svg";
-import information from "../public/information.svg";
-
-import avatarFelipeMoura from "../public/avatar_felipe_moura.jpg";
-import avatarTiago from "../public/tiago-avatar.jpg";
 import avatarEdison from "../public/edison-avatar.jpg";
-
-import logoFapesp from "../public/logo_fapesp.jpg";
+import information from "../public/information.svg";
 import logoAgTechValley from "../public/logo_agtech_valley.jpg";
 import logoEsalqtec from "../public/logo_esalqtec.jpeg";
-
+import logoFapesp from "../public/logo_fapesp.jpg";
 import logoAgromais from "../public/logo-agromais.jpg";
 import logoCompreRural from "../public/logo-comprerural.png";
+import logoDna from "../public/logo-dna.jpg";
 import logoFieldView from "../public/logo-fieldview.png";
 import logoIRancho from "../public/logo-irancho.jpg";
 import logoOrganic from "../public/logo-organic.png";
 import logoTelesintese from "../public/logo-telesintese.png";
 import logoVFL from "../public/logo-vfl.png";
-import logoDna from "../public/logo-dna.jpg";
+import probabilidadeQuedaBoi from "../public/probabilidade_queda_boi.jpg";
+import tabelaProbabilidadeQueda from "../public/tabela_probabilidade_queda.jpg";
+import avatarTiago from "../public/tiago-avatar.jpg";
 
 const logosMidia = [
   logoAgromais,
@@ -152,13 +146,13 @@ export default class IndexPage extends Component {
           <h2>Agromove na mídia</h2>
           <Slider {...settings}>
             {logosMidia.map((element) => (
-              <div key={element}>
+              <div key={element.src}>
                 <Image
                   alt={"midia images"}
                   style={{ margin: "0px auto" }}
                   verticalAlign="center"
                   centered
-                  src={element}
+                  src={element.src}
                   size="small"
                 />
               </div>
@@ -174,9 +168,9 @@ export default class IndexPage extends Component {
           <h2>Apoio</h2>
           <Grid.Row columns={4}>
             {logos.map((logo) => (
-              <Grid.Column key={logo} verticalAlign="middle">
+              <Grid.Column key={logo.src} verticalAlign="middle">
                 <Image
-                  src={logo.logo}
+                  src={logo.logo.src}
                   style={{ padding: "30px" }}
                   alt={"logo"}
                 />

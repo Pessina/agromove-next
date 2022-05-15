@@ -9,18 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "jquery": "^3.6.0",
     "react-device-detect": "^2.2.2",
-    "react-helmet": "^6.1.0",
+    "react-dom": "18.1.0",
     "react-slick": "^0.29.0",
+    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.1.2",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6"
+    "eslint": "^8.14.0",
+    "eslint-config-next": "12.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.6.2"
   }
 }

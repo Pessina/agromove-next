@@ -1,10 +1,10 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
-import { Menu, Image, Container, Grid, Icon, Button } from "semantic-ui-react";
+import { Button, Container, Grid, Icon, Image, Menu } from "semantic-ui-react";
 
 import logo from "../public/logo.png";
 import { burgerMenu } from "../utils/utils";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Header = () => {
   const router = useRouter();
@@ -29,7 +29,7 @@ const Header = () => {
         <Container>
           <Menu.Item only="computer">
             <Link href="/">
-              <Image src={logo} size="small" alt="logo" />
+              <Image src={logo.src} size="small" alt="logo" />
             </Link>
           </Menu.Item>
           <Grid>

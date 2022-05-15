@@ -1,50 +1,75 @@
-import React from "react";
-import { Form, Container, Grid } from "semantic-ui-react";
+import emailjs from "@emailjs/browser";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { Container, Form, Grid } from "semantic-ui-react";
 
-import { handleClickButtonForms } from "../utils/utils";
 import { radioJobs } from "../utils/constants";
 
 const FormsPage = () => {
-  formId = "formComplete-PageForms";
+  useEffect(() => {
+    configurePhoneInput();
+  }, []);
 
-  formElements = [
-    <Form.Input key="1" id="area" type="hidden" />,
-    <Form.Input key="2" id="type" type="hidden" />,
+  const {
+    query: { keyword },
+  } = useRouter();
+
+  useEffect(() => {
+    onChangeForm({ name: "email", value: keyword });
+  }, [keyword]);
+
+  const [formsValues, setFormValues] = useState({
+    name: "",
+    email: keyword,
+    phone: "",
+    area: "",
+  });
+
+  const onChangeForm = ({ name, value }) => {
+    setFormValues((prevState) => ({ ...prevState, [name]: [value] }));
+  };
+
+  const formElements = [
     <Form.Input
       key="3"
       label="Qual o seu nome?"
       style={{ width: "100%" }}
-      id="name"
+      name="name"
       placeholder="Nome"
       required
+      value={formsValues.name}
+      onChange={({ target }) => onChangeForm(target)}
     />,
     <Form.Input
       key="4"
       label="Qual o seu email?"
       style={{ width: "100%" }}
-      id="email"
+      name="email"
       placeholder="Email"
       required
+      value={formsValues.email}
+      onChange={({ target }) => onChangeForm(target)}
     />,
     <Form.Input
       key="5"
       label="Qual o seu celular?"
       style={{ width: "100%" }}
+      name="phone"
       id="phone"
       placeholder="Celular"
       required
+      value={formsValues.phone}
+      onChange={({ target }) => onChangeForm(target)}
     />,
     <Form.Select
       key="6"
       options={radioJobs}
       fluid
       label="Qual a sua área de atuação?"
-      id="area-copy"
+      name="area"
       placeholder="Área"
-      onChange={(e, { value }) => {
-        document.getElementById("area").value = value;
-      }}
       required
+      onChange={(e, target) => onChangeForm(target)}
     />,
   ];
 
@@ -81,27 +106,31 @@ const FormsPage = () => {
     }
   };
 
+  const onSubmit = () => {
+    emailjs
+      .send(
+        "service_o4yhuhe",
+        "template_bt2mm3i",
+        formsValues,
+        "xbaZfwiULKePuD2cD"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   return (
     <>
-      <Container text className="Forms">
-        <Form id={this.formId} style={{ height: "100vh" }}>
-          <div style={{ height: "0px" }}>
-            <Form.Input
-              type="hidden"
-              id="token_rdstation"
-              name="token_rdstation"
-              value="515c24c672fad7174004a058136dbbb0"
-            />
-            <Form.Input
-              type="hidden"
-              id="identificador"
-              name="identificador"
-              value="Forms Completo"
-            />
-          </div>
+      <Container text className="Forms" onSubmit={onSubmit}>
+        <Form style={{ height: "100vh" }}>
           <Grid stackable>
             <Grid.Row columns={1}>
-              {this.formElements.map((element) => (
+              {formElements.map((element) => (
                 <Grid.Column key={element} style={{ padding: "12px" }}>
                   {element}
                 </Grid.Column>
@@ -115,13 +144,7 @@ const FormsPage = () => {
                   width: "250px",
                   margin: "10px auto",
                 }}
-                onClick={() => {
-                  handleClickButtonForms(
-                    "Forms-Falar com Consultor",
-                    this.formId,
-                    ""
-                  );
-                }}
+                type="submit"
               >
                 Falar com um consultor
               </Form.Button>
