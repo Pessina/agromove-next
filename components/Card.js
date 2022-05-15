@@ -1,15 +1,7 @@
-import React, { Component } from 'react';
+import React from "react";
 
-export default class GridCards extends Component {
-  render() {
-    const {
-      content
-    } = this.props;
+const GridCards = ({ content }) => {
+  return <div className="Card">{content}</div>;
+};
 
-    return (
-      <div className="Card">
-        {content}
-      </div>
-    );
-  }
-}
+export default GridCards;

@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { Menu, Image, Container, Grid, Icon, Button } from "semantic-ui-react";
-import ReactGA from "react-ga";
 
 import logo from "../public/logo.png";
 import { burgerMenu } from "../utils/utils";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export const Header = () => {
+const Header = () => {
   const router = useRouter();
 
   const onClickHandle = () => {
@@ -58,10 +57,10 @@ export const Header = () => {
           <Menu.Item position="right">
             <Grid>
               <Grid.Row only="computer">
-                {this.checkPage() && (
+                {checkPage() && (
                   <Button
                     style={{ backgroundColor: "#2E6B34", color: "#FFFFFF" }}
-                    onClick={() => this.onClickHandle()}
+                    onClick={() => onClickHandle()}
                   >
                     Acessar sua Conta
                   </Button>
@@ -77,3 +76,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

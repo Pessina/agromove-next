@@ -99,7 +99,7 @@ const settings = {
 export default class IndexPage extends Component {
   render() {
     return (
-      <Layout>
+      <>
         <MainSection
           title="Encontre o melhor momento para comprar e vender a produção e insumos de sua fazenda"
           subtitle="Converse com um de nossos consultores para conhecer a ferramenta, que irá ajudar você a maximizar os lucros da sua fazenda"
@@ -208,7 +208,7 @@ export default class IndexPage extends Component {
             </a>
           </div>
         </div>
-      </Layout>
+      </>
     );
   }
 }

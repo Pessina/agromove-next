@@ -2,10 +2,6 @@ import "../styles/globals.css";
 
 import React, { Component } from "react";
 import Helmet from "react-helmet";
-import ReactGA from "react-ga";
-import { hotjar } from "react-hotjar";
-import ReactPixel from "react-facebook-pixel";
-import lozad from "lozad";
 import {
   Loader,
   Modal,
@@ -19,15 +15,9 @@ import {
 import Header from "../components/Header";
 import { burgerMenu } from "../utils/utils";
 
-if (typeof window === "undefined") {
-  global.window = {};
-}
-
 export default class Layout extends Component {
   componentDidMount() {
     this.configInputs();
-    const observer = lozad();
-    observer.observe();
   }
 
   configInputs() {

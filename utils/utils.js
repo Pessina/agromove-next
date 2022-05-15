@@ -1,7 +1,6 @@
 import React from "react";
 import $ from "jquery";
 import { isTablet, isMobile } from "react-device-detect";
-import ReactGA from "react-ga";
 import { Modal } from "semantic-ui-react";
 
 const styleCenter = {
@@ -87,10 +86,6 @@ function submitForm(formId, plan) {
 }
 
 function handleClickButtonForms(gaEvent, formId, buttonText) {
-  ReactGA.event({
-    category: "CTA",
-    action: gaEvent,
-  });
   submitForm(formId, buttonText);
 }
 

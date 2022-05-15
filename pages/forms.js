@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Form, Container, Grid } from "semantic-ui-react";
 
 import { handleClickButtonForms } from "../utils/utils";
