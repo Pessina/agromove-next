@@ -41,7 +41,7 @@ const cardsFeatures = [
   {
     icon: lecture,
     title: "Palestras",
-    text: "Conheça nosso palestrante Alberto Pessina, gestor do agronegócio com mais de 20 anos de experiência.",
+    text: "Conheça nosso palestrante Alberto Pessina, gestor do agronegócio com mais de 25 anos de experiência.",
     cta: "Quero conhecer o Alberto",
     link: "https://blog.agromove.com.br/palestras",
   },

@@ -16,7 +16,7 @@ const EmailForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </Form.Field>
-      <Form.Button disabled={!!!email} className="button--green">
+      <Form.Button className="button--green">
         <Link
           style={{ color: "#fff" }}
           href={{ pathname: "/forms", query: { keyword: email } }}

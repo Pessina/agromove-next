@@ -14,6 +14,7 @@ import Review from "../components/Review";
 import Video from "../components/Video";
 import avatarAlberto from "../public/avatar_alberto.jpg";
 import avatarFelipeMoura from "../public/avatar_felipe_moura.jpg";
+import avatarFlavio from "../public/avatar_flavio.png";
 import computer from "../public/computer.svg";
 import connect from "../public/connect.svg";
 import avatarEdison from "../public/edison-avatar.jpg";
@@ -101,7 +102,7 @@ export default class IndexPage extends Component {
         <Hero
           imagePath={probabilidadeQuedaBoi}
           title="Mais do que simples cotações"
-          phrase="Como você sabe, hoje em dia os sites dão várias informações sobre preço das sacas, arroba, dólar, etc. Mas é tarefa do produtor analisar e saber o melhor momento para comprar e vender. Vemos que muitas vezes isso é uma dor de cabeça e você perde o foco na gestão da sua produção. Por isto criamos a Agromove, uma ferramenta que analisa o mercado para você, enquanto você faz o seu melhor cuidando da produção."
+          phrase="Como você sabe, hoje em dia os sites dão várias informações sobre preço das sacas, arroba, dólar, etc. Mas é tarefa do produtor analisar e saber o melhor momento para comprar e vender. Vemos que muitas vezes isso é uma dor de cabeça e você perde o foco na gestão da sua produção. Por isto criamos as Plataformas Inteligentes Agromove, uma ferramenta que analisa o mercado para você, enquanto você faz o seu melhor cuidando da produção."
           textPosition="left"
         />
         <Hero
@@ -113,8 +114,14 @@ export default class IndexPage extends Component {
         <Hero
           imagePath={avatarAlberto}
           title="Nada seria possível sem um expert"
-          phrase="Alberto Pessina, Engenheiro Agrônomo formado pela Esalq-USP, com MBA pela Fundação Dom Cabral e mais de 20 anos atuando no setor. É o fundador da Agromove e desenvolvedor da ferramenta que vai ajudar você a saber o melhor momento para comprar e vender a produção e insumos de sua fazenda."
+          phrase="Alberto Pessina, Engenheiro Agrônomo formado pela ESALQ-USP, com MBA pela Fundação Dom Cabral e mais de 25 anos atuando no setor. É o fundador da Agromove e desenvolvedor da ferramenta que vai ajudar você a saber o melhor momento para comprar e vender a produção e insumos de sua fazenda."
           textPosition="left"
+        />
+        <Hero
+          imagePath={avatarFlavio}
+          title="Expertise na proteção de resultados"
+          phrase="Flávio Abdo Saraiva Santos, Economista formado na PUC-SP, com especialização em Finanças e Agronegócio na ESALQ-USP. Mais de 25 anos trabalhando em bancos e multinacionais focado na gestão de hedge no Agronegócio. Hoje, participa da gestão de grandes grupos do Agro (fora da porteira) e nas fazendas da família no Mato Grosso do Sul. Também faz parte da diretoria da Associação Sul-Mato-Grossense de Produtores de Novilho Precoce – ASPNP."
+          textPosition="right"
         />
         <Review
           person={{
