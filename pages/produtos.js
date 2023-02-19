@@ -15,21 +15,21 @@ const cardsFeatures = [
     title: "Plataformas Inteligentes Agromove",
     text: "Ferramentas para análise do mercado de commodites, auxiliando o produtor a comprar e vender sua produção no melhor momento.",
     cta: "Quero conhecer",
-    link: "https://blog.agromove.com.br/pecuaria-de-decisao-2",
+    link: "https://materiais.agromove.com.br/pecuaria-de-decisao",
   },
   {
     icon: ebook,
-    title: "E-books",
-    text: "Conheça nossos e-books para melhorar a gestão da sua fazenda.",
+    title: "Mentoria",
+    text: "Aprenda a proteger sua margem de lucro, criar previsibilidade e ter a segurança de que está fazendo o melhor negócio para sua fazenda. ",
     cta: "Quero saber mais",
-    link: "https://blog.agromove.com.br/e-books",
+    link: "https://materiais.agromove.com.br/mentoria-mercado-futuro",
   },
   {
     icon: information,
     title: "Consultoria",
     text: "Consultoria em análise de mercado para pequenos e grandes produtores agropecuários, auxiliando a comprar e vender os insumos e produção no melhor momento.",
     cta: "Quero saber mais",
-    link: "https://blog.agromove.com.br/consultoria",
+    link: "https://materiais.agromove.com.br/consultoria",
   },
   {
     icon: course,
@@ -43,21 +43,21 @@ const cardsFeatures = [
     title: "Palestras",
     text: "Conheça nosso palestrante Alberto Pessina, gestor do agronegócio com mais de 25 anos de experiência.",
     cta: "Quero conhecer o Alberto",
-    link: "https://blog.agromove.com.br/palestras",
+    link: "https://materiais.agromove.com.br/palestras",
   },
   {
     icon: farm,
     title: "In Company",
     text: "Treinamento para equipe de técnicos em empresas do agronegócio, para saberem responder melhor a volatilidade do mercado.",
     cta: "Quero mais informações",
-    link: "https://blog.agromove.com.br/in-company",
+    link: "https://materiais.agromove.com.br/in-company",
   },
 ];
 
 const ProdutosPage = () => {
   return (
     <>
-      <GridCards columns={2} cards={cardsFeatures} />
+      <GridCards columns={3} cards={cardsFeatures} />
       <Footer />
       <div style={{ padding: "6px 0px", textAlign: "center" }}>
         <div>
