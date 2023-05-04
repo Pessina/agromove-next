@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
 
 import React, { useEffect } from "react";
+import TagManager from "react-gtm-module";
 import {
   Button,
   Icon,
@@ -32,6 +33,10 @@ const Layout = ({ Component, pageProps }) => {
     };
 
     configInputs();
+  }, []);
+
+  useEffect(() => {
+    TagManager.initialize({ gtmId: "GTM-MH3NVGB" });
   }, []);
 
   return (
