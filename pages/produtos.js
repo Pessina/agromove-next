@@ -2,12 +2,12 @@ import React from "react";
 
 import Footer from "../components/Footer";
 import GridCards from "../components/GridCards";
-import computer from "../public/computer.svg";
-import ebook from "../public/ebook.svg";
-import information from "../public/information.svg";
-import lecture from "../public/seminar.svg";
-import farm from "../public/turbine.svg";
-import course from "../public/video-lecture.svg";
+import computer from "../public/images/computer.svg";
+import ebook from "../public/images/ebook.svg";
+import information from "../public/images/information.svg";
+import lecture from "../public/images/seminar.svg";
+import farm from "../public/images/turbine.svg";
+import course from "../public/images/video-lecture.svg";
 
 const cardsFeatures = [
   {

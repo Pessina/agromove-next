@@ -1,0 +1,68 @@
+{
+  "home": {
+    "mainSection": {
+      "title": "Encontre o melhor momento para comprar e vender a produção e insumos de sua fazenda",
+      "subtitle": "Converse com um de nossos consultores para conhecer a ferramenta, que irá ajudar você a maximizar os lucros da sua fazenda"
+    },
+    "hero1": {
+      "title": "Mais do que simples cotações",
+      "phrase": "Como você sabe, hoje em dia os sites dão várias informações sobre preço das sacas, arroba, dólar, etc. Mas é tarefa do produtor analisar e saber o melhor momento para comprar e vender. Vemos que muitas vezes isso é uma dor de cabeça e você perde o foco na gestão da sua produção. Por isto criamos as Plataformas Inteligentes Agromove, uma ferramenta que analisa o mercado para você, enquanto você faz o seu melhor cuidando da produção."
+    },
+    "hero2": {
+      "title": "Nem tudo é software",
+      "phrase": "É claro que nem tudo conseguimos fazer com software, por isso temos uma equipe de consultores que analisa semanalmente o mercado, política e economia e seus impactos na produção agrícola e pecuária. Ajudando você a ter uma visão melhor do mercado no futuro, trabalhando com dados e certezas."
+    },
+    "hero3": {
+      "title": "Nada seria possível sem um expert",
+      "phrase": "Alberto Pessina, Engenheiro Agrônomo formado pela ESALQ-USP, com MBA pela Fundação Dom Cabral e mais de 25 anos atuando no setor. É o fundador da Agromove e desenvolvedor da ferramenta que vai ajudar você a saber o melhor momento para comprar e vender a produção e insumos de sua fazenda."
+    },
+    "hero4": {
+      "title": "Expertise na proteção de resultados",
+      "phrase": "Flávio Abdo Saraiva Santos, Economista formado na PUC-SP, com especialização em Finanças e Agronegócio na ESALQ-USP. Mais de 25 anos trabalhando em bancos e multinacionais focado na gestão de hedge no Agronegócio. Hoje, participa da gestão de grandes grupos do Agro (fora da porteira) e nas fazendas da família no Mato Grosso do Sul. Também faz parte da diretoria da Associação Sul-Mato-Grossense de Produtores de Novilho Precoce – ASPNP."
+    },
+    "review1": {
+      "name": "Felipe Moura",
+      "job": "Pecuarista",
+      "text": "\"Essa ferramenta vem auxiliando a gente a tomar decisões pautadas em dados reais.  Em apenas 4 dias que esperamos para realizar a venda, baseado nas analises do Pecuária de Decisão, tivemos um ganho financeiro acima do esperado.\""
+    },
+    "review2": {
+      "name": "Edison Castelano",
+      "job": "Diretor Boitel VFL",
+      "text": "“Com a vinda da Plataforma Agromove, aumentamos nosso Lucro e maximizamos os resultados do Confinamento. E na agricultura sabemos a hora de vender a soja e o milho.”"
+    },
+    "review3": {
+      "name": "Thiago Pedroso Palma",
+      "job": "Eng. Agrônomo, Gerente de Produção do Grupo APB",
+      "text": "“O Pecuária de Decisão nos permite tomar decisões e alcançarmos médias mais interessantes que as do mercado. O curso de introdução ao Pecuária de Decisão é muito bom! Com frequência pedimos para novos colaboradores vê-lo e assim compreender melhor o mercado pecuário.”"
+    },
+    "mediaSection": {
+      "title": "Agromove na mídia",
+      "seeNews": "Veja as notícias"
+    },
+    "gridCards": [
+      {
+        "title": "Gráficos",
+        "text": "Não tem forma melhor de visualizar dados do que com gráficos. E não é diferente na Agromove, aqui você terá acesso à diferentes gráficos das commodities atualizados com a tendência de queda."
+      },
+      {
+        "title": "Chat",
+        "text": "Esqueça a dor de cabeça de ligar para o suporte e ficar horas ao telefone. Ou trocar emails com consultores que demoram horas ou dias para responder, aqui na Agromove trabalhamos com um Chat Real Time"
+      },
+      {
+        "title": "Informativos e Vídeos",
+        "text": "Quando se trata de informações mais detalhadas, nós usamos outros canais para melhorar a nossa comunicação. Você receberá semanalmente acesso aos nossos informativos e vídeos feitos por nosso fundador, comentando sobre os principais impactos da política e econômica na produção agrícola e pecuária. Se você preferir, pode receber tudo direto no seu email."
+      }
+    ],
+    "contact": {
+      "title": "Entre em contato",
+      "subtitle": "Estamos à disposição para responder suas dúvidas e auxiliar na melhor decisão para a sua produção."
+    },
+    "footer": {
+      "quickLinks": "Links rápidos",
+      "aboutUs": "Sobre nós",
+      "contact": "Contato",
+      "privacyPolicy": "Política de privacidade",
+      "termsOfService": "Termos de serviço"
+    }
+  }
+}

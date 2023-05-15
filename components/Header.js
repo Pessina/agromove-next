@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { Button, Container, Grid, Icon, Image, Menu } from "semantic-ui-react";
 
-import logo from "../public/logo.png";
+import logo from "../public/images/logo.png";
 import { burgerMenu } from "../utils/utils";
 
 const Header = () => {

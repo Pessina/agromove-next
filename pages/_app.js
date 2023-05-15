@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
 
+import { appWithTranslation } from "next-i18next";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 import {
@@ -94,4 +95,4 @@ const Layout = ({ Component, pageProps }) => {
   );
 };
 
-export default Layout;
+export default appWithTranslation(Layout);
