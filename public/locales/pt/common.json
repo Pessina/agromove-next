@@ -39,6 +39,9 @@
       "title": "Agromove na mídia",
       "seeNews": "Veja as notícias"
     },
+    "help": {
+      "title": "Apoio"
+    },
     "gridCards": [
       {
         "title": "Gráficos",
@@ -64,5 +67,41 @@
       "privacyPolicy": "Política de privacidade",
       "termsOfService": "Termos de serviço"
     }
-  }
+  },
+  "emailForm": {
+    "cta": "Quero falar com um consultor",
+    "hint": "*Sem compromisso, gratuitamente"
+  },
+  "products": [
+    {
+      "title": "Plataformas Inteligentes Agromove",
+      "text": "Ferramentas para análise do mercado de commodites, auxiliando o produtor a comprar e vender sua produção no melhor momento.",
+      "cta": "Quero conhecer"
+    },
+    {
+      "title": "Mentoria",
+      "text": "Aprenda a proteger sua margem de lucro, criar previsibilidade e ter a segurança de que está fazendo o melhor negócio para sua fazenda. ",
+      "cta": "Quero saber mais"
+    },
+    {
+      "title": "Consultoria",
+      "text": "Consultoria em análise de mercado para pequenos e grandes produtores agropecuários, auxiliando a comprar e vender os insumos e produção no melhor momento.",
+      "cta": "Quero saber mais"
+    },
+    {
+      "title": "Cursos e Simuladores",
+      "text": "Conheça nossos cursos para gestores do agronegócio e planilhas para auxiliar na tomada de decisão baseada em dados.",
+      "cta": "Quero saber mais"
+    },
+    {
+      "title": "Palestras",
+      "text": "Conheça nosso palestrante Alberto Pessina, gestor do agronegócio com mais de 25 anos de experiência.",
+      "cta": "Quero conhecer o Alberto"
+    },
+    {
+      "title": "In Company",
+      "text": "Treinamento para equipe de técnicos em empresas do agronegócio, para saberem responder melhor a volatilidade do mercado.",
+      "cta": "Quero mais informações"
+    }
+  ]
 }

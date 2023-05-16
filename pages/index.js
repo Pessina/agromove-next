@@ -178,7 +178,7 @@ const IndexPage = () => {
       <GridCards columns={3} cards={cardsFeatures} />
       <Contact />
       <Grid container stackable centered>
-        <h2>Apoio</h2>
+        <h2>{t("help.title")}</h2>
         <Grid.Row columns={4}>
           {logos.map((logo) => (
             <Grid.Column key={logo.src} verticalAlign="middle">

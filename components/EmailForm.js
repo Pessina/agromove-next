@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import { Form } from "semantic-ui-react";
 
 const EmailForm = () => {
   const [email, setEmail] = useState("");
+  const { t } = useTranslation("", { keyPrefix: "emailForm" });
 
   return (
     <Form>
@@ -21,10 +23,10 @@ const EmailForm = () => {
           style={{ color: "#fff" }}
           href={{ pathname: "/forms", query: { keyword: email } }}
         >
-          Quero falar com um consultor
+          {t("cta")}
         </Link>
       </Form.Button>
-      <small>*Sem compromisso, gratuitamente</small>
+      <small>{t("hint")}</small>
     </Form>
   );
 };
