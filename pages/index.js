@@ -154,7 +154,7 @@ const IndexPage = () => {
         }}
         text={t("review2.text")}
       />
-      <Video id="hd2Yg4NU1Aw" />
+      <Video id="hd2Yg4NU1Aw" title={t("video.title")} />
       <Container textAlign="center">
         <h2>{t("mediaSection.title")}</h2>
         <Slider {...settings}>

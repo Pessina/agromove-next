@@ -39,6 +39,9 @@
       "title": "Agromove na mídia",
       "seeNews": "Veja as notícias"
     },
+    "video": {
+      "title": "Conheça nosso fundador Alberto Pessina"
+    },
     "help": {
       "title": "Apoio"
     },
@@ -103,5 +106,31 @@
       "text": "Treinamento para equipe de técnicos em empresas do agronegócio, para saberem responder melhor a volatilidade do mercado.",
       "cta": "Quero mais informações"
     }
-  ]
+  ],
+  "forms": {
+    "fields": {
+      "name": {
+        "label": "Qual o seu nome?",
+        "placeholder": "Nome"
+      },
+      "email": {
+        "label": "Qual o seu email?",
+        "placeholder": "Email"
+      },
+      "phone": {
+        "label": "Qual o seu celular?",
+        "placeholder": "Celular"
+      },
+      "area": {
+        "label": "Qual a sua área de atuação?",
+        "placeholder": "Área"
+      }
+    },
+    "cta": "Falar com um consultor"
+  },
+  "formsThanks": {
+    "title": "Obrigado por entrar em contato com a Agromove",
+    "subtitle": "Entraremos em contato o mais breve possível",
+    "cta": "Inicio"
+  }
 }

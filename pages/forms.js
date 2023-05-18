@@ -1,11 +1,15 @@
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import React, { useCallback, useMemo, useState } from "react";
 import { Container, Form, Grid } from "semantic-ui-react";
 
 import { radioJobs } from "../utils/constants";
 
 const FormsPage = () => {
+  const { t } = useTranslation("", { keyPrefix: "forms" });
+
   const router = useRouter();
   const {
     query: { keyword },
@@ -18,57 +22,60 @@ const FormsPage = () => {
     area: "",
   });
 
-  const formElements = [
-    <Form.Input
-      key="3"
-      label="Qual o seu nome?"
-      style={{ width: "100%" }}
-      name="name"
-      placeholder="Nome"
-      required
-      value={formsValues.name}
-      onChange={({ target }) => onChangeForm(target)}
-    />,
-    <Form.Input
-      key="4"
-      label="Qual o seu email?"
-      style={{ width: "100%" }}
-      name="email"
-      placeholder="Email"
-      required
-      value={formsValues.email}
-      onChange={({ target }) => onChangeForm(target)}
-    />,
-    <Form.Input
-      key="5"
-      label="Qual o seu celular?"
-      style={{ width: "100%" }}
-      name="phone"
-      id="phone"
-      placeholder="Celular"
-      required
-      value={formsValues.phone}
-      onChange={({ target }) => onChangeForm(target)}
-    />,
-    <Form.Select
-      key="6"
-      options={radioJobs}
-      fluid
-      label="Qual a sua área de atuação?"
-      name="area"
-      placeholder="Área"
-      required
-      onChange={(e, target) => onChangeForm(target)}
-    />,
-  ];
-
-  const onChangeForm = ({ name, value }) => {
+  const onChangeForm = useCallback(({ name, value }) => {
     if (name === "phone") {
       value = parsePhone(value);
     }
 
     setFormValues((prevState) => ({ ...prevState, [name]: value }));
-  };
+  }, []);
+
+  const formElements = useMemo(
+    () => [
+      <Form.Input
+        key="3"
+        label={t("fields.name.label")}
+        placeholder={t("fields.name.placeholder")}
+        style={{ width: "100%" }}
+        name="name"
+        required
+        value={formsValues.name}
+        onChange={({ target }) => onChangeForm(target)}
+      />,
+      <Form.Input
+        key="4"
+        label={t("fields.email.label")}
+        placeholder={t("fields.email.placeholder")}
+        style={{ width: "100%" }}
+        name="email"
+        required
+        value={formsValues.email}
+        onChange={({ target }) => onChangeForm(target)}
+      />,
+      <Form.Input
+        key="5"
+        label={t("fields.phone.label")}
+        placeholder={t("fields.phone.placeholder")}
+        style={{ width: "100%" }}
+        name="phone"
+        id="phone"
+        required
+        value={formsValues.phone}
+        onChange={({ target }) => onChangeForm(target)}
+      />,
+      <Form.Select
+        key="6"
+        options={radioJobs}
+        fluid
+        label={t("fields.area.label")}
+        placeholder={t("fields.area.placeholder")}
+        name="area"
+        required
+        onChange={(e, target) => onChangeForm(target)}
+      />,
+    ],
+    [formsValues, onChangeForm, t]
+  );
 
   const parsePhone = (phone) => {
     let numbers = phone.match(/\d+/g) ? phone.match(/\d+/g) : [];
@@ -132,7 +139,7 @@ const FormsPage = () => {
                 }}
                 type="submit"
               >
-                Falar com um consultor
+                {t("cta")}
               </Form.Button>
             </Grid.Row>
           </Grid>
@@ -141,5 +148,13 @@ const FormsPage = () => {
     </>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "footer"])),
+    },
+  };
+}
 
 export default FormsPage;
