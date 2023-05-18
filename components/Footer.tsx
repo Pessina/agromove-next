@@ -12,7 +12,7 @@ type FooterProps = {
 
 const Footer: React.FC<FooterProps> = ({ i18n }) => {
   return (
-    <div className="bg-gray-200 mt-18 p-15 px-0 align-middle">
+    <div className="bg-gray-200 mt-18 py-15 align-middle">
       <Container>
         <Grid stackable textAlign="center">
           <Grid.Row columns={2}>

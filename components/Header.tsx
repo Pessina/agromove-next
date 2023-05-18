@@ -6,7 +6,20 @@ import { Button, Container, Grid, Icon, Image, Menu } from "semantic-ui-react";
 import logo from "../public/images/logo.png";
 import { burgerMenu } from "../utils/utils";
 
-const Header = ({ menuItems }) => {
+type MenuItems = {
+  agromove: string;
+  products: string;
+  freeProducts: string;
+  blog: string;
+  webinars: string;
+  login: string;
+};
+
+type HeaderProps = {
+  menuItems: MenuItems;
+};
+
+const Header: React.FC<HeaderProps> = ({ menuItems }) => {
   const router = useRouter();
 
   const onClickHandle = () => {
@@ -14,7 +27,7 @@ const Header = ({ menuItems }) => {
   };
 
   const checkPage = () => {
-    return router.pathname.indexOf("forms") == -1;
+    return router.pathname.indexOf("forms") === -1;
   };
 
   return (
@@ -53,7 +66,7 @@ const Header = ({ menuItems }) => {
               <Grid.Row only="computer">
                 {checkPage() && (
                   <Button
-                    style={{ backgroundColor: "#2E6B34", color: "#FFFFFF" }}
+                    className="text-white bg-green-800"
                     onClick={() => onClickHandle()}
                   >
                     {menuItems.login}

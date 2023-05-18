@@ -1,32 +1,42 @@
 import React from "react";
-import { Button, Container, Grid, Image } from "semantic-ui-react";
+import {
+  Button,
+  Container,
+  Grid,
+  Image,
+  SemanticWIDTHS,
+} from "semantic-ui-react";
 
 import Card from "./Card";
 
-const GridCards = ({ columns, cards }) => {
-  const style = {
-    button: {
-      backgroundColor: "#2E6B34",
-      color: "#FFFFFF",
-      width: "250px",
-    },
+type CardData = {
+  title: string;
+  text: string;
+  icon: {
+    src: string;
+    alt: string;
   };
+  cta?: string;
+  link?: string;
+};
 
+type GridCardsProps = {
+  columns: SemanticWIDTHS;
+  cards: CardData[];
+};
+
+const GridCards: React.FC<GridCardsProps> = ({ columns, cards }) => {
   return (
     <Container className="GridCards">
       <Grid stackable>
         <Grid.Row columns={columns}>
           {cards.map((card) => (
-            <Grid.Column
-              key={card.title}
-              stretched
-              style={{ margin: "24px 0px" }}
-            >
+            <Grid.Column key={card.title} stretched className="py-6">
               <Card
                 content={
                   <div>
                     <Image
-                      alt={"icon"}
+                      alt={card.icon.alt}
                       className="lozad"
                       src={card.icon.src}
                       size="tiny"
@@ -35,7 +45,10 @@ const GridCards = ({ columns, cards }) => {
                     <h3>{card.title}</h3>
                     <p>{card.text}</p>
                     {!!card.cta && (
-                      <Button href={card.link} style={{ ...style.button }}>
+                      <Button
+                        href={card.link}
+                        className="bg-green-800 text-white w-[250px]"
+                      >
                         {card.cta}
                       </Button>
                     )}

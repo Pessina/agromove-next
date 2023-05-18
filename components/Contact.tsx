@@ -13,7 +13,7 @@ type ContactProps = {
 
 const Contact: React.FC<ContactProps> = ({ i18n }) => {
   return (
-    <div className="flex items-center justify-center py-10 px-0">
+    <div className="flex items-center justify-center py-10">
       <Container text centered textAlign="center">
         <h2>{i18n.title}</h2>
         <p>{i18n.subtitle}</p>
