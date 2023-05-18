@@ -3,29 +3,29 @@ import { Container, Grid, Icon, Image } from "semantic-ui-react";
 
 import logo from "../public/images/logo.png";
 
-const Footer = () => {
+type FooterProps = {
+  i18n: {
+    whatsapp: (number: string) => string;
+    email: (email: string) => string;
+  };
+};
+
+const Footer: React.FC<FooterProps> = ({ i18n }) => {
   return (
-    <div
-      style={{
-        backgroundColor: "#F0F0F0",
-        marginTop: "72px",
-        verticalAlign: "middle",
-        padding: "60px 0px",
-      }}
-    >
+    <div className="bg-gray-200 mt-18 p-15 px-0 align-middle">
       <Container>
         <Grid stackable textAlign="center">
           <Grid.Row columns={2}>
             <Grid.Column verticalAlign="middle">
               <Image src={logo.src} size="large" alt="logo" />
             </Grid.Column>
-            <Grid.Column style={{ padding: "32px" }}>
-              <p>WhatsApp: (14) 9 9134-8132</p>
-              <p>email: contato@agromove.com.br</p>
+            <Grid.Column className="mt-8">
+              <p>{i18n.whatsapp("(14) 9 9134-8132")} </p>
+              <p>{i18n.email("contato@agromove.com.br")}</p>
               <a href="https://blog.agromove.com.br">
                 <p>blog.agromove.com.br</p>
               </a>
-              <div style={{ marginTop: "32px" }}>
+              <div className="mt-8">
                 <a
                   href="https://www.facebook.com/Agromove/"
                   target="_blank"

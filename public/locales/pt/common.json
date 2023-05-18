@@ -53,9 +53,11 @@
     "footer": {
       "aboutUs": "Sobre nós",
       "contact": "Contato",
+      "email": "email: {{email}}",
       "privacyPolicy": "Política de privacidade",
       "quickLinks": "Links rápidos",
-      "termsOfService": "Termos de serviço"
+      "termsOfService": "Termos de serviço",
+      "whatsapp": "Whatsapp: {{number}}"
     },
     "gridCards": [
       {

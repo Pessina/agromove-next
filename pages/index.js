@@ -210,7 +210,12 @@ const IndexPage = () => {
           ))}
         </Grid.Row>
       </Grid>
-      <Footer />
+      <Footer
+        i18n={{
+          whatsapp: (number) => t("footer.whatsapp", { number }),
+          email: (email) => t("footer.email", { email }),
+        }}
+      />
     </>
   );
 };
