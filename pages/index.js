@@ -102,8 +102,16 @@ const IndexPage = () => {
   return (
     <>
       <MainSection
-        title={t("mainSection.title")}
-        subtitle={t("mainSection.subtitle")}
+        i18n={{
+          title: t("mainSection.title"),
+          subtitle: t("mainSection.subtitle"),
+          emailForm: {
+            title: t("emailForm.title"),
+            subtitle: t("emailForm.subtitle"),
+            cta: t("emailForm.cta"),
+            hint: t("emailForm.hint"),
+          },
+        }}
       />
       <Hero
         imagePath={probabilidadeQuedaBoi}
@@ -176,7 +184,18 @@ const IndexPage = () => {
         </a>
       </Container>
       <GridCards columns={3} cards={cardsFeatures} />
-      <Contact />
+      <Contact
+        i18n={{
+          title: t("contactLast.title"),
+          subtitle: t("contactLast.subtitle"),
+          emailForm: {
+            title: t("emailForm.title"),
+            subtitle: t("emailForm.subtitle"),
+            cta: t("emailForm.cta"),
+            hint: t("emailForm.hint"),
+          },
+        }}
+      />
       <Grid container stackable centered>
         <h2>{t("help.title")}</h2>
         <Grid.Row columns={4}>

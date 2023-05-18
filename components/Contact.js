@@ -4,17 +4,13 @@ import { Container } from "semantic-ui-react";
 import EmailForm from "../components/EmailForm";
 import { styleCenter } from "../utils/utils";
 
-const Contact = ({ subtitle }) => {
+const Contact = ({ i18n }) => {
   return (
     <div className="Contact" style={{ ...styleCenter }}>
       <Container text centered textAlign="center">
-        <h2>
-          Gostou da Agromove e quer ter a melhor ferramenta de análise de
-          mercado para sua fazenda?
-        </h2>
-        <p>Entre em contato conosco agora e conheça nossos planos.</p>
-        <p>{subtitle}</p>
-        <EmailForm />
+        <h2>{i18n.title}</h2>
+        <p>{i18n.subtitle}</p>
+        <EmailForm i18n={i18n.emailForm} />
       </Container>
     </div>
   );

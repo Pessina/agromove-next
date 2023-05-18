@@ -1,17 +1,15 @@
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
 import { useState } from "react";
 import { Form } from "semantic-ui-react";
 
-const EmailForm = () => {
+const EmailForm = ({ i18n }) => {
   const [email, setEmail] = useState("");
-  const { t } = useTranslation("", { keyPrefix: "emailForm" });
 
   return (
     <Form>
       <Form.Field style={{ padding: "3% 6%" }}>
         <input
-          placeholder="Email"
+          placeholder={i18n.emailPlaceholder}
           type="email"
           required
           value={email}
@@ -23,10 +21,10 @@ const EmailForm = () => {
           style={{ color: "#fff" }}
           href={{ pathname: "/forms", query: { keyword: email } }}
         >
-          {t("cta")}
+          {i18n.cta}
         </Link>
       </Form.Button>
-      <small>{t("hint")}</small>
+      <small>{i18n.hint}</small>
     </Form>
   );
 };

@@ -73,6 +73,15 @@
       "title": "Entre em contato",
       "subtitle": "Estamos à disposição para responder suas dúvidas e auxiliar na melhor decisão para a sua produção."
     },
+    "contactLast": {
+      "title": "Gostou da Agromove e quer ter a melhor ferramenta de análise de mercado para sua fazenda?",
+      "subtitle": "Entre em contato conosco agora e conheça nossos planos."
+    },
+    "emailForm": {
+      "title": "Email",
+      "cta": "Falar com um consultor",
+      "hint": "*Sem compromisso, gratuitamente"
+    },
     "footer": {
       "quickLinks": "Links rápidos",
       "aboutUs": "Sobre nós",
@@ -80,10 +89,6 @@
       "privacyPolicy": "Política de privacidade",
       "termsOfService": "Termos de serviço"
     }
-  },
-  "emailForm": {
-    "cta": "Quero falar com um consultor",
-    "hint": "*Sem compromisso, gratuitamente"
   },
   "products": [
     {
