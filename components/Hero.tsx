@@ -3,20 +3,35 @@ import { Container, Grid, Image } from "semantic-ui-react";
 
 import { modalImage } from "../utils/utils";
 
-const Hero = ({ imagePath, alt, title, phrase, textPosition }) => {
+type HeroProps = {
+  imagePath: {
+    src: string;
+  };
+  alt: string;
+  title: string;
+  phrase: string;
+  textPosition: "left" | "right";
+};
+
+const Hero: React.FC<HeroProps> = ({
+  imagePath,
+  alt,
+  title,
+  phrase,
+  textPosition,
+}) => {
   return (
     <div className="Hero">
       <Container>
         <Grid stackable>
           <Grid.Row columns={2}>
-            {!!(textPosition == "right") && (
+            {!!(textPosition === "right") && (
               <Grid.Column only="computer tablet" width={9}>
                 {modalImage(
                   <Image
-                    className="lozad"
+                    className="lozad mx-auto"
                     alt={alt}
                     src={imagePath.src}
-                    style={{ margin: "0px auto" }}
                     rounded
                   />
                 )}
@@ -26,14 +41,13 @@ const Hero = ({ imagePath, alt, title, phrase, textPosition }) => {
               <h2>{title}</h2>
               <p>{phrase}</p>
             </Grid.Column>
-            {!!(textPosition == "left") && (
+            {!!(textPosition === "left") && (
               <Grid.Column only="computer tablet" width={9}>
                 {modalImage(
                   <Image
-                    className="lozad"
+                    className="lozad mx-auto"
                     alt={alt}
                     src={imagePath.src}
-                    style={{ margin: "0px auto" }}
                     rounded
                   />
                 )}
@@ -41,10 +55,9 @@ const Hero = ({ imagePath, alt, title, phrase, textPosition }) => {
             )}
             <Grid.Column only="mobile" centered>
               <Image
-                className="lozad"
+                className="lozad mx-auto"
                 alt={alt}
                 src={imagePath.src}
-                style={{ margin: "0px auto" }}
                 rounded
               />
             </Grid.Column>

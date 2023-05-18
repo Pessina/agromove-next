@@ -75,7 +75,7 @@ const settings = {
   centerMode: true,
 };
 
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "home" });
 
   const cardsFeatures = useMemo(
@@ -113,24 +113,28 @@ const IndexPage = () => {
         }}
       />
       <Hero
+        alt="none"
         imagePath={probabilidadeQuedaBoi}
         title={t("hero1.title")}
         phrase={t("hero1.phrase")}
         textPosition="left"
       />
       <Hero
+        alt="none"
         imagePath={tabelaProbabilidadeQueda}
         title={t("hero2.title")}
         phrase={t("hero2.phrase")}
         textPosition="right"
       />
       <Hero
+        alt="none"
         imagePath={avatarAlberto}
         title={t("hero3.title")}
         phrase={t("hero3.phrase")}
         textPosition="left"
       />
       <Hero
+        alt="none"
         imagePath={avatarFlavio}
         title={t("hero3.title")}
         phrase={t("hero3.phrase")}
@@ -170,7 +174,7 @@ const IndexPage = () => {
               <Image
                 alt={"midia images"}
                 style={{ margin: "0px auto" }}
-                verticalAlign="center"
+                verticalAlign="middle"
                 centered
                 src={element.src}
                 size="small"
@@ -188,8 +192,7 @@ const IndexPage = () => {
           title: t("contactLast.title"),
           subtitle: t("contactLast.subtitle"),
           emailForm: {
-            title: t("emailForm.title"),
-            subtitle: t("emailForm.subtitle"),
+            emailPlaceholder: t("emailForm.emailPlaceholder"),
             cta: t("emailForm.cta"),
             hint: t("emailForm.hint"),
           },
@@ -199,7 +202,7 @@ const IndexPage = () => {
         <h2>{t("help.title")}</h2>
         <Grid.Row columns={4}>
           {logos.map((logo) => (
-            <Grid.Column key={logo.src} verticalAlign="middle">
+            <Grid.Column key={logo.text} verticalAlign="middle">
               <Image
                 src={logo.logo.src}
                 style={{ padding: "30px" }}
@@ -212,8 +215,8 @@ const IndexPage = () => {
       </Grid>
       <Footer
         i18n={{
-          whatsapp: (number) => t("footer.whatsapp", { number }),
-          email: (email) => t("footer.email", { email }),
+          whatsapp: (number: string) => t("footer.whatsapp", { number }),
+          email: (email: string) => t("footer.email", { email }),
         }}
       />
     </>

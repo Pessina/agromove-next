@@ -1,7 +1,12 @@
 import React from "react";
 import { Container, Embed } from "semantic-ui-react";
 
-const Video = ({ title, id }) => {
+type VideoProps = {
+  title: string;
+  id: string;
+};
+
+const Video: React.FC<VideoProps> = ({ title, id }) => {
   return (
     <Container className="Video" textAlign="center" text>
       <h2>{title}</h2>
@@ -11,12 +16,8 @@ const Video = ({ title, id }) => {
         active
         autoplay={false}
         icon={null}
-        style={{
-          minHeight: "200px",
-          minWidth: "100px",
-          margin: "32px 0px",
-        }}
-        brandedUI={1}
+        className="min-w-[100px] min-h-[200px] my-8"
+        brandedUI={false}
       />
     </Container>
   );

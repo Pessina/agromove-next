@@ -1,22 +1,28 @@
 import React from "react";
 import { Container, Grid, Image } from "semantic-ui-react";
 
-const Review = ({ person, text, reversed }) => {
-  const styles = {
-    image: {
-      height: "112px",
-      width: "112px",
-      marginBottom: "16px",
-    },
+type Person = {
+  name: string;
+  job: string;
+  image?: {
+    src: string;
   };
+};
 
+type ReviewProps = {
+  person: Person;
+  text: string;
+  reversed?: boolean;
+};
+
+const Review: React.FC<ReviewProps> = ({ person, text, reversed }) => {
   return (
     <Container centered className="Review">
       <Grid stackable>
         <Grid.Row
           columns={16}
-          textAlign="middle"
-          reversed={reversed && "computer"}
+          textAlign="center"
+          reversed={reversed ? "computer" : undefined}
         >
           <Grid.Column width={6} textAlign="center">
             {person.image && (
@@ -24,7 +30,7 @@ const Review = ({ person, text, reversed }) => {
                 circular
                 centered
                 src={person.image.src}
-                style={{ ...styles.image }}
+                className="h-[112px] w-[112px] mb-4"
                 alt="logo"
                 size="small"
               />
