@@ -45,7 +45,8 @@
       "title": "Gostou da Agromove e quer ter a melhor ferramenta de análise de mercado para sua fazenda?"
     },
     "emailForm": {
-      "cta": "Falar com um consultor",
+      "cta": "Quero falar com um consultor",
+      "emailPlaceholder": "Email",
       "hint": "*Sem compromisso, gratuitamente",
       "title": "Email"
     },

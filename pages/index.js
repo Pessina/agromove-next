@@ -106,8 +106,7 @@ const IndexPage = () => {
           title: t("mainSection.title"),
           subtitle: t("mainSection.subtitle"),
           emailForm: {
-            title: t("emailForm.title"),
-            subtitle: t("emailForm.subtitle"),
+            emailPlaceholder: t("emailForm.emailPlaceholder"),
             cta: t("emailForm.cta"),
             hint: t("emailForm.hint"),
           },
