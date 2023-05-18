@@ -6,7 +6,7 @@ import { Button, Container, Grid, Icon, Image, Menu } from "semantic-ui-react";
 import logo from "../public/images/logo.png";
 import { burgerMenu } from "../utils/utils";
 
-const Header = () => {
+const Header = ({ menuItems }) => {
   const router = useRouter();
 
   const onClickHandle = () => {
@@ -15,12 +15,6 @@ const Header = () => {
 
   const checkPage = () => {
     return router.pathname.indexOf("forms") == -1;
-  };
-
-  const scroll = (className) => {
-    document.getElementsByClassName(className)[0].scrollIntoView({
-      behavior: "smooth",
-    });
   };
 
   return (
@@ -35,22 +29,22 @@ const Header = () => {
           <Grid>
             <Grid.Row only="computer">
               <Menu.Item as="a" href="/">
-                <p>Agromove</p>
+                <p>{menuItems.agromove}</p>
               </Menu.Item>
               <Menu.Item as="a" href="/produtos">
-                <p>Produtos</p>
+                <p>{menuItems.products}</p>
               </Menu.Item>
               <Menu.Item
                 as="a"
                 href="https://blog.agromove.com.br/produtos-gratuitos/"
               >
-                <p>Produtos gratuitos</p>
+                <p>{menuItems.freeProducts}</p>
               </Menu.Item>
               <Menu.Item as="a" href="https://blog.agromove.com.br">
-                <p>Blog</p>
+                <p>{menuItems.blog}</p>
               </Menu.Item>
               <Menu.Item as="a" href="https://blog.agromove.com.br/webinars/">
-                <p>Webinars</p>
+                <p>{menuItems.webinars}</p>
               </Menu.Item>
             </Grid.Row>
           </Grid>
@@ -62,7 +56,7 @@ const Header = () => {
                     style={{ backgroundColor: "#2E6B34", color: "#FFFFFF" }}
                     onClick={() => onClickHandle()}
                   >
-                    Acessar sua Conta
+                    {menuItems.login}
                   </Button>
                 )}
               </Grid.Row>

@@ -1,4 +1,14 @@
 {
+  "app": {
+    "header": {
+      "agromove": "Agromove",
+      "products": "Produtos",
+      "freeProducts": "Produtos Gratuitos",
+      "blog": "Blog",
+      "webinars": "Webinars",
+      "login": "Acessar sua conta"
+    }
+  },
   "home": {
     "mainSection": {
       "title": "Encontre o melhor momento para comprar e vender a produção e insumos de sua fazenda",

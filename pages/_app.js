@@ -1,7 +1,8 @@
 import "../styles/globals.css";
 import "semantic-ui-css/semantic.min.css";
 
-import { appWithTranslation } from "next-i18next";
+import { appWithTranslation, useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 import {
@@ -17,6 +18,8 @@ import {
 import Header from "../components/Header";
 import { burgerMenu } from "../utils/utils";
 const Layout = ({ Component, pageProps }) => {
+  const { t } = useTranslation("", { keyPrefix: "app" });
+
   useEffect(() => {
     const configInputs = () => {
       const elements = document.getElementsByTagName("INPUT");
@@ -42,7 +45,16 @@ const Layout = ({ Component, pageProps }) => {
 
   return (
     <div>
-      <Header />
+      <Header
+        menuItems={{
+          agromove: t("header.agromove"),
+          products: t("header.products"),
+          freeProducts: t("header.freeProducts"),
+          blog: t("header.blog"),
+          webinars: t("header.webinars"),
+          login: t("header.login"),
+        }}
+      />
       <div style={{ marginTop: "69px" }}>
         <Sidebar.Pushable as={Segment}>
           <Sidebar
@@ -94,5 +106,13 @@ const Layout = ({ Component, pageProps }) => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "footer"])),
+    },
+  };
+}
 
 export default appWithTranslation(Layout);
