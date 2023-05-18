@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 import Button from "./Button";
+import Input from "./Input";
 
 export type EmailFormI18N = {
   emailPlaceholder: string;
@@ -18,14 +19,14 @@ const EmailForm: React.FC<EmailFormProps> = ({ i18n, className }) => {
   const [email, setEmail] = useState("");
 
   return (
-    <form className={`${className} flex flex-col items-center`}>
-      <input
+    <form className={`${className} flex flex-col items-center gap-2`}>
+      <Input
         placeholder={i18n.emailPlaceholder}
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-[200px]"
+        className="w-[350px]"
       />
       <Button className="w-fit">
         <Link href={{ pathname: "/forms", query: { keyword: email } }}>

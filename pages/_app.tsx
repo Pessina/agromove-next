@@ -34,7 +34,7 @@ const Layout: React.FC<any> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <div className="font-barlow">
+    <div className="font-barlow flex flex-col">
       <Header
         menuItems={{
           agromove: t("header.agromove"),

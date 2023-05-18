@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ menuItems }) => {
   );
 
   return (
-    <div className="flex justify-between items-center px-16 h-[72px] shadow-md">
+    <div className="flex justify-between items-center px-16 h-[72px] shadow-md sticky top-0 bg-white">
       <div className="flex items-center gap-2 h-full">
         <Link href="/" passHref className="mr-4">
           <Image

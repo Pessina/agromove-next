@@ -101,7 +101,7 @@ const IndexPage: React.FC = () => {
   );
 
   return (
-    <>
+    <div className="space-y-10">
       <MainSection
         i18n={{
           title: t("mainSection.title"),
@@ -113,34 +113,36 @@ const IndexPage: React.FC = () => {
           },
         }}
       />
-      <Hero
-        alt="none"
-        imagePath={probabilidadeQuedaBoi}
-        title={t("hero1.title")}
-        phrase={t("hero1.phrase")}
-        textPosition="left"
-      />
-      <Hero
-        alt="none"
-        imagePath={tabelaProbabilidadeQueda}
-        title={t("hero2.title")}
-        phrase={t("hero2.phrase")}
-        textPosition="right"
-      />
-      <Hero
-        alt="none"
-        imagePath={avatarAlberto}
-        title={t("hero3.title")}
-        phrase={t("hero3.phrase")}
-        textPosition="left"
-      />
-      <Hero
-        alt="none"
-        imagePath={avatarFlavio}
-        title={t("hero3.title")}
-        phrase={t("hero3.phrase")}
-        textPosition="right"
-      />
+      <div className="px-[120px] space-y-10">
+        <Hero
+          alt="none"
+          imagePath={probabilidadeQuedaBoi}
+          title={t("hero1.title")}
+          phrase={t("hero1.phrase")}
+          textPosition="left"
+        />
+        <Hero
+          alt="none"
+          imagePath={tabelaProbabilidadeQueda}
+          title={t("hero2.title")}
+          phrase={t("hero2.phrase")}
+          textPosition="right"
+        />
+        <Hero
+          alt="none"
+          imagePath={avatarAlberto}
+          title={t("hero3.title")}
+          phrase={t("hero3.phrase")}
+          textPosition="left"
+        />
+        <Hero
+          alt="none"
+          imagePath={avatarFlavio}
+          title={t("hero3.title")}
+          phrase={t("hero3.phrase")}
+          textPosition="right"
+        />
+      </div>
       <Review
         person={{
           image: avatarFelipeMoura,
@@ -219,7 +221,7 @@ const IndexPage: React.FC = () => {
           email: (email: string) => tFooter("email", { email }),
         }}
       />
-    </>
+    </div>
   );
 };
 
