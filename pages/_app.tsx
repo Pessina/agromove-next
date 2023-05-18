@@ -17,20 +17,21 @@ import {
 
 import Header from "../components/Header";
 import { burgerMenu } from "../utils/utils";
-const Layout = ({ Component, pageProps }) => {
+
+const Layout: React.FC<any> = ({ Component, pageProps }) => {
   const { t } = useTranslation("", { keyPrefix: "app" });
 
   useEffect(() => {
     const configInputs = () => {
       const elements = document.getElementsByTagName("INPUT");
       for (let i = 0; i < elements.length; i++) {
-        elements[i].oninvalid = function (e) {
+        (elements[i] as HTMLElement).oninvalid = function (e: any) {
           e.target.setCustomValidity("");
           if (!e.target.validity.valid) {
             e.target.setCustomValidity("Por favor preencha este campo");
           }
         };
-        elements[i].oninput = function (e) {
+        (elements[i] as HTMLElement).oninput = function (e: any) {
           e.target.setCustomValidity("");
         };
       }
