@@ -50,15 +50,6 @@
       "hint": "*Sem compromisso, gratuitamente",
       "title": "Email"
     },
-    "footer": {
-      "aboutUs": "Sobre nós",
-      "contact": "Contato",
-      "email": "email: {{email}}",
-      "privacyPolicy": "Política de privacidade",
-      "quickLinks": "Links rápidos",
-      "termsOfService": "Termos de serviço",
-      "whatsapp": "Whatsapp: {{number}}"
-    },
     "gridCards": [
       {
         "text": "Não tem forma melhor de visualizar dados do que com gráficos. E não é diferente na Agromove, aqui você terá acesso à diferentes gráficos das commodities atualizados com a tendência de queda.",
@@ -150,5 +141,14 @@
       "text": "Treinamento para equipe de técnicos em empresas do agronegócio, para saberem responder melhor a volatilidade do mercado.",
       "title": "In Company"
     }
-  ]
+  ],
+  "footer": {
+    "aboutUs": "Sobre nós",
+    "contact": "Contato",
+    "email": "email: {{email}}",
+    "privacyPolicy": "Política de privacidade",
+    "quickLinks": "Links rápidos",
+    "termsOfService": "Termos de serviço",
+    "whatsapp": "Whatsapp: {{number}}"
+  }
 }

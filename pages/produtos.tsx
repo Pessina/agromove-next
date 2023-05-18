@@ -11,8 +11,9 @@ import lecture from "../public/images/seminar.svg";
 import farm from "../public/images/turbine.svg";
 import course from "../public/images/video-lecture.svg";
 
-const ProdutosPage = () => {
+const ProductsPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "products" });
+  const { t: tFooter } = useTranslation("", { keyPrefix: "footer" });
 
   const cardsFeatures = useMemo(
     () => [
@@ -65,7 +66,12 @@ const ProdutosPage = () => {
   return (
     <>
       <GridCards columns={3} cards={cardsFeatures} />
-      <Footer />
+      <Footer
+        i18n={{
+          whatsapp: (number) => tFooter("whatsapp", { number }),
+          email: (email) => tFooter("email", { email }),
+        }}
+      />
     </>
   );
 };
@@ -78,4 +84,4 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default ProdutosPage;
+export default ProductsPage;

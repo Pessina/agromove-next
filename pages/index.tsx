@@ -77,6 +77,7 @@ const settings = {
 
 const IndexPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "home" });
+  const { t: tFooter } = useTranslation("", { keyPrefix: "footer" });
 
   const cardsFeatures = useMemo(
     () => [
@@ -215,8 +216,8 @@ const IndexPage: React.FC = () => {
       </Grid>
       <Footer
         i18n={{
-          whatsapp: (number: string) => t("footer.whatsapp", { number }),
-          email: (email: string) => t("footer.email", { email }),
+          whatsapp: (number: string) => tFooter("whatsapp", { number }),
+          email: (email: string) => tFooter("email", { email }),
         }}
       />
     </>

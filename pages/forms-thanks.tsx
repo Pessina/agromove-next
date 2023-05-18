@@ -4,7 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 import { Button, Container } from "semantic-ui-react";
 
-const FormsPage = () => {
+const FormsPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "formsThanks" });
 
   return (
