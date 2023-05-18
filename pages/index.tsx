@@ -1,11 +1,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useMemo } from "react";
 import Slider from "react-slick";
-import { Container, Grid, Image } from "semantic-ui-react";
 
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -167,7 +167,7 @@ const IndexPage: React.FC = () => {
         text={t("review2.text")}
       />
       <Video id="hd2Yg4NU1Aw" title={t("video.title")} />
-      <Container textAlign="center">
+      <div>
         <h2>{t("mediaSection.title")}</h2>
         <Slider {...settings}>
           {logosMidia.map((element) => (
@@ -175,10 +175,9 @@ const IndexPage: React.FC = () => {
               <Image
                 alt={"midia images"}
                 style={{ margin: "0px auto" }}
-                verticalAlign="middle"
-                centered
                 src={element.src}
-                size="small"
+                height={200}
+                width={200}
               />
             </div>
           ))}
@@ -186,7 +185,7 @@ const IndexPage: React.FC = () => {
         <a href="https://blog.agromove.com.br/agromove-na-midia/">
           {t("mediaSection.seeNews")}
         </a>
-      </Container>
+      </div>
       <GridCards columns={3} cards={cardsFeatures} />
       <Contact
         i18n={{
@@ -199,21 +198,21 @@ const IndexPage: React.FC = () => {
           },
         }}
       />
-      <Grid container stackable centered>
-        <h2>{t("help.title")}</h2>
-        <Grid.Row columns={4}>
-          {logos.map((logo) => (
-            <Grid.Column key={logo.text} verticalAlign="middle">
-              <Image
-                src={logo.logo.src}
-                style={{ padding: "30px" }}
-                alt={"logo"}
-              />
-              <p>{logo.text}</p>
-            </Grid.Column>
-          ))}
-        </Grid.Row>
-      </Grid>
+      <h2>{t("help.title")}</h2>
+      <div className="grid-cols-4">
+        {logos.map((logo) => (
+          <div key={logo.text} className="flex flex-col justify-center">
+            <Image
+              src={logo.logo.src}
+              style={{ padding: "30px" }}
+              alt={"logo"}
+              width={200}
+              height={200}
+            />
+            <p>{logo.text}</p>
+          </div>
+        ))}
+      </div>
       <Footer
         i18n={{
           whatsapp: (number: string) => tFooter("whatsapp", { number }),

@@ -4,7 +4,6 @@ import { appWithTranslation, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
-import { Button, Loader, Modal } from "semantic-ui-react";
 
 import Header from "../components/Header";
 
@@ -46,10 +45,9 @@ const Layout: React.FC<any> = ({ Component, pageProps }) => {
           login: t("header.login"),
         }}
       />
-      <Component {...pageProps} />
-      <Modal trigger={<Button id="loading" style={{ display: "none" }} />}>
-        <Loader active>Carregando</Loader>
-      </Modal>
+      <div className="px-16">
+        <Component {...pageProps} />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,3 @@
-import React from "react";
-import { Modal } from "semantic-ui-react";
-
 const noscroll = (): void => {
   window.scrollTo(0, 0);
 };
@@ -21,12 +18,4 @@ const burgerMenu = (): void => {
   }
 };
 
-const modalImage = (image: JSX.Element): JSX.Element => {
-  return (
-    <Modal trigger={image} size="large">
-      <Modal.Content image>{image}</Modal.Content>
-    </Modal>
-  );
-};
-
-export { burgerMenu, modalImage };
+export { burgerMenu };

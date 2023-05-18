@@ -1,7 +1,5 @@
+import Image from "next/image";
 import React from "react";
-import { Container, Grid, Image } from "semantic-ui-react";
-
-import { modalImage } from "../utils/utils";
 
 type HeroProps = {
   imagePath: {
@@ -21,49 +19,23 @@ const Hero: React.FC<HeroProps> = ({
   textPosition,
 }) => {
   return (
-    <div className="Hero">
-      <Container>
-        <Grid stackable>
-          <Grid.Row columns={2}>
-            {!!(textPosition === "right") && (
-              <Grid.Column only="computer tablet" width={9}>
-                {modalImage(
-                  <Image
-                    className="lozad mx-auto"
-                    alt={alt}
-                    src={imagePath.src}
-                    rounded
-                  />
-                )}
-              </Grid.Column>
-            )}
-            <Grid.Column verticalAlign="middle" width={7} textAlign="left">
-              <h2>{title}</h2>
-              <p>{phrase}</p>
-            </Grid.Column>
-            {!!(textPosition === "left") && (
-              <Grid.Column only="computer tablet" width={9}>
-                {modalImage(
-                  <Image
-                    className="lozad mx-auto"
-                    alt={alt}
-                    src={imagePath.src}
-                    rounded
-                  />
-                )}
-              </Grid.Column>
-            )}
-            <Grid.Column only="mobile" centered>
-              <Image
-                className="lozad mx-auto"
-                alt={alt}
-                src={imagePath.src}
-                rounded
-              />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
+    <div
+      className={`flex items-center gap-10 h-[400px] flex-row
+      ${textPosition === "right" ? "flex-row-reverse" : ""}`}
+    >
+      <div className="grow-[3] h-full">
+        <Image
+          alt={alt}
+          src={imagePath.src}
+          height={200}
+          width={200}
+          className="w-full h-auto"
+        />
+      </div>
+      <div className="grow-1">
+        <h2 className="text-3xl">{title}</h2>
+        <p>{phrase}</p>
+      </div>
     </div>
   );
 };

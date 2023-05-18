@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Embed } from "semantic-ui-react";
 
 type VideoProps = {
   title: string;
@@ -8,9 +7,9 @@ type VideoProps = {
 
 const Video: React.FC<VideoProps> = ({ title, id }) => {
   return (
-    <Container className="Video" textAlign="center" text>
+    <div>
       <h2>{title}</h2>
-      <Embed
+      {/* <Embed
         id={id}
         source="youtube"
         active
@@ -18,8 +17,8 @@ const Video: React.FC<VideoProps> = ({ title, id }) => {
         icon={null}
         className="min-w-[100px] min-h-[200px] my-8"
         brandedUI={false}
-      />
-    </Container>
+      /> */}
+    </div>
   );
 };
 

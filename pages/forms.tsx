@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useCallback, useMemo, useState } from "react";
-import { Container, Form, Grid } from "semantic-ui-react";
+
+import Button from "../components/Button";
 
 const parsePhone = (phone: string): string => {
   let numbers = phone.match(/\d+/g)?.join("") ?? "";
@@ -59,10 +60,9 @@ const FormsPage: React.FC = () => {
 
   const formElements = useMemo(
     () => [
-      // ...other form inputs
-      <Form.Input
+      <input
         key="5"
-        label={t("fields.phone.label")}
+        // label={t("fields.phone.label")}
         placeholder={t("fields.phone.placeholder")}
         style={{ width: "100%" }}
         name="phone"
@@ -71,7 +71,6 @@ const FormsPage: React.FC = () => {
         value={formsValues.phone}
         onChange={({ target }) => onChangeForm(target)}
       />,
-      // ...other form inputs
     ],
     [formsValues, onChangeForm, t]
   );
@@ -88,32 +87,22 @@ const FormsPage: React.FC = () => {
 
   return (
     <>
-      <Container text className="Forms" onSubmit={onSubmit}>
-        <Form style={{ height: "100vh" }}>
-          <Grid stackable>
-            <Grid.Row columns={1}>
-              {formElements.map((element, index) => (
-                <Grid.Column key={index} style={{ padding: "12px" }}>
-                  {element}
-                </Grid.Column>
-              ))}
-            </Grid.Row>
-            <Grid.Row centered>
-              <Form.Button
-                style={{
-                  backgroundColor: "#2E6B34",
-                  color: "#FFFFFF",
-                  width: "250px",
-                  margin: "10px auto",
-                }}
-                type="submit"
-              >
+      <div onSubmit={onSubmit}>
+        <form className="h-screen">
+          <div>
+            {formElements.map((element, index) => (
+              <div key={index} className="p-3">
+                {element}
+              </div>
+            ))}
+            <div>
+              <Button className="w-[250px] py-3 px-auto" type="submit">
                 {t("cta")}
-              </Form.Button>
-            </Grid.Row>
-          </Grid>
-        </Form>
-      </Container>
+              </Button>
+            </div>
+          </div>
+        </form>
+      </div>
     </>
   );
 };

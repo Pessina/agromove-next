@@ -1,12 +1,8 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-import {
-  Button,
-  Container,
-  Grid,
-  Image,
-  SemanticWIDTHS,
-} from "semantic-ui-react";
 
+import Button from "./Button";
 import Card from "./Card";
 
 type CardData = {
@@ -21,45 +17,38 @@ type CardData = {
 };
 
 type GridCardsProps = {
-  columns: SemanticWIDTHS;
+  columns: number;
   cards: CardData[];
 };
 
 const GridCards: React.FC<GridCardsProps> = ({ columns, cards }) => {
   return (
-    <Container className="GridCards">
-      <Grid stackable>
-        <Grid.Row columns={columns}>
-          {cards.map((card) => (
-            <Grid.Column key={card.title} stretched className="py-6">
-              <Card
-                content={
-                  <div>
-                    <Image
-                      alt={card.icon.alt}
-                      className="lozad"
-                      src={card.icon.src}
-                      size="tiny"
-                      centered
-                    />
-                    <h3>{card.title}</h3>
-                    <p>{card.text}</p>
-                    {!!card.cta && (
-                      <Button
-                        href={card.link}
-                        className="bg-green-800 text-white w-[250px]"
-                      >
-                        {card.cta}
-                      </Button>
-                    )}
-                  </div>
-                }
+    <div className="grid grid-cols-3 gap-4">
+      {cards.map((card) => (
+        <Card
+          className="flex flex-col items-center justify-center gap-2"
+          key={card.link}
+          content={
+            <>
+              <Image
+                alt={card.icon.alt}
+                src={card.icon.src}
+                height={200}
+                width={200}
+                className="h-[72px] w-auto"
               />
-            </Grid.Column>
-          ))}
-        </Grid.Row>
-      </Grid>
-    </Container>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+              {!!card.cta && (
+                <Link href={card.link} passHref>
+                  <Button className="w-[250px]">{card.cta}</Button>
+                </Link>
+              )}
+            </>
+          }
+        />
+      ))}
+    </div>
   );
 };
 
