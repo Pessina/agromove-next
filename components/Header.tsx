@@ -1,10 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
-import { Button, Container, Grid, Icon, Image, Menu } from "semantic-ui-react";
+import React, { useMemo } from "react";
 
 import logo from "../public/images/logo.png";
-import { burgerMenu } from "../utils/utils";
+import Button from "./Button";
 
 type MenuItems = {
   agromove: string;
@@ -30,56 +30,68 @@ const Header: React.FC<HeaderProps> = ({ menuItems }) => {
     return router.pathname.indexOf("forms") === -1;
   };
 
+  const menuItemsArr = useMemo(
+    () => [
+      {
+        name: menuItems.agromove,
+        href: "/",
+      },
+      {
+        name: menuItems.products,
+        href: "/produtos",
+      },
+      {
+        name: menuItems.freeProducts,
+        href: "https://blog.agromove.com.br/produtos-gratuitos/",
+      },
+      {
+        name: menuItems.blog,
+        href: "https://blog.agromove.com.br",
+      },
+      {
+        name: menuItems.webinars,
+        href: "https://blog.agromove.com.br/webinars/",
+      },
+    ],
+    [menuItems]
+  );
+
   return (
-    <div>
-      <Menu borderless fixed="top">
-        <Container>
-          <Menu.Item only="computer">
-            <Link href="/" passHref>
-              <Image src={logo.src} size="small" alt="logo" />
+    <div className="flex justify-between items-center px-8 h-[72px] shadow-md">
+      <div className="flex items-center gap-2 h-full">
+        <Link href="/" passHref className="mr-4">
+          <Image
+            src={logo.src}
+            alt="logo"
+            width={50}
+            height={50}
+            className="h-[40px] w-auto"
+          />
+        </Link>
+        <div className="hidden lg:flex items-center h-full">
+          {menuItemsArr.map((item) => (
+            <Link
+              href={item.href}
+              key={item.href}
+              className="text-black opacity-70 h-full px-2 hover:bg-gray-100 hover:text-black
+              flex items-center"
+            >
+              {item.name}
             </Link>
-          </Menu.Item>
-          <Grid>
-            <Grid.Row only="computer">
-              <Menu.Item as="a" href="/">
-                <p>{menuItems.agromove}</p>
-              </Menu.Item>
-              <Menu.Item as="a" href="/produtos">
-                <p>{menuItems.products}</p>
-              </Menu.Item>
-              <Menu.Item
-                as="a"
-                href="https://blog.agromove.com.br/produtos-gratuitos/"
-              >
-                <p>{menuItems.freeProducts}</p>
-              </Menu.Item>
-              <Menu.Item as="a" href="https://blog.agromove.com.br">
-                <p>{menuItems.blog}</p>
-              </Menu.Item>
-              <Menu.Item as="a" href="https://blog.agromove.com.br/webinars/">
-                <p>{menuItems.webinars}</p>
-              </Menu.Item>
-            </Grid.Row>
-          </Grid>
-          <Menu.Item position="right">
-            <Grid>
-              <Grid.Row only="computer">
-                {checkPage() && (
-                  <Button
-                    className="text-white bg-green-800"
-                    onClick={() => onClickHandle()}
-                  >
-                    {menuItems.login}
-                  </Button>
-                )}
-              </Grid.Row>
-              <Grid.Row only="mobile tablet">
+          ))}
+        </div>
+      </div>
+      {checkPage() && (
+        <Button
+          className="text-white bg-green-800"
+          onClick={() => onClickHandle()}
+        >
+          {menuItems.login}
+        </Button>
+      )}
+      {/* <Grid.Row only="mobile tablet">
                 <Icon name="bars" size="big" onClick={() => burgerMenu()} />
-              </Grid.Row>
-            </Grid>
-          </Menu.Item>
-        </Container>
-      </Menu>
+              </Grid.Row> */}
     </div>
   );
 };
