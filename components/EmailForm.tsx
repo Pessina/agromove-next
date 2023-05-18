@@ -19,16 +19,16 @@ const EmailForm: React.FC<EmailFormProps> = ({ i18n, className }) => {
   const [email, setEmail] = useState("");
 
   return (
-    <form className={`${className} flex flex-col items-center gap-2`}>
+    <form className={`${className} flex flex-col items-center`}>
       <Input
         placeholder={i18n.emailPlaceholder}
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-[350px]"
+        className="w-[300px]"
       />
-      <Button className="w-fit">
+      <Button className="w-fit mt-4">
         <Link href={{ pathname: "/forms", query: { keyword: email } }}>
           {i18n.cta}
         </Link>

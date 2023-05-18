@@ -5,10 +5,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const Layout: React.FC<any> = ({ Component, pageProps }) => {
   const { t } = useTranslation("", { keyPrefix: "app" });
+  const { t: tFooter } = useTranslation("", { keyPrefix: "footer" });
 
   useEffect(() => {
     const configInputs = () => {
@@ -48,6 +50,12 @@ const Layout: React.FC<any> = ({ Component, pageProps }) => {
       <div className="px-16">
         <Component {...pageProps} />
       </div>
+      <Footer
+        i18n={{
+          whatsapp: (number: string) => tFooter("whatsapp", { number }),
+          email: (email: string) => tFooter("email", { email }),
+        }}
+      />
     </div>
   );
 };

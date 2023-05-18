@@ -10,7 +10,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <input
         {...props}
         ref={ref}
-        className={`border-[1px] rounded-xl border-gray-200 p-3
+        className={`border-[1px] rounded-lg border-gray-200 px-3 py-2
         ${className}`}
       />
     );

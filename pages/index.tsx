@@ -8,7 +8,6 @@ import React, { useMemo } from "react";
 import Slider from "react-slick";
 
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
 import GridCards from "../components/GridCards";
 import Hero from "../components/Hero";
 import MainSection from "../components/MainSection";
@@ -77,7 +76,6 @@ const settings = {
 
 const IndexPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "home" });
-  const { t: tFooter } = useTranslation("", { keyPrefix: "footer" });
 
   const cardsFeatures = useMemo(
     () => [
@@ -200,27 +198,23 @@ const IndexPage: React.FC = () => {
           },
         }}
       />
-      <h2>{t("help.title")}</h2>
-      <div className="grid-cols-4">
-        {logos.map((logo) => (
-          <div key={logo.text} className="flex flex-col justify-center">
-            <Image
-              src={logo.logo.src}
-              style={{ padding: "30px" }}
-              alt={"logo"}
-              width={200}
-              height={200}
-            />
-            <p>{logo.text}</p>
-          </div>
-        ))}
+      <div className="text-center">
+        <h2 className="text-2xl font-bold">{t("help.title")}</h2>
+        <div className="grid grid-cols-4">
+          {logos.map((logo) => (
+            <div key={logo.text} className="flex flex-col justify-center">
+              <Image
+                src={logo.logo.src}
+                style={{ padding: "30px" }}
+                alt={"logo"}
+                width={200}
+                height={200}
+              />
+              <p>{logo.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
-      <Footer
-        i18n={{
-          whatsapp: (number: string) => tFooter("whatsapp", { number }),
-          email: (email: string) => tFooter("email", { email }),
-        }}
-      />
     </div>
   );
 };
