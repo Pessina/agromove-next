@@ -27,7 +27,7 @@ const settings: Settings = {
 
 const MediaSection: React.FC<MediaSectionProps> = ({ logosMidia, i18n }) => {
   return (
-    <div className="max-w-[1200px] text-center space-y-4">
+    <div className="max-w-[1200px] text-center space-y-8">
       <h2 className="text-3xl font-bold">{i18n.title}</h2>
       <Slider {...settings}>
         {logosMidia.map((element) => (

@@ -7,7 +7,7 @@ type GridCardsProps = {
 
 const GridCards: React.FC<GridCardsProps> = ({ content, className = "" }) => {
   return (
-    <div className={`${className} rounded-md shadow-md p-8 text-center md:p-4`}>
+    <div className={`${className} rounded-md shadow-md p-8 text-center`}>
       {content}
     </div>
   );

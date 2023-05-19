@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useMemo } from "react";
@@ -9,6 +8,7 @@ import Hero from "../components/Hero";
 import MainSection from "../components/MainSection";
 import MediaSection from "../components/MediaSection";
 import Review from "../components/Review";
+import SupportSection from "../components/SupportSection";
 import Video from "../components/Video";
 import avatarAlberto from "../public/images/avatar_alberto.jpg";
 import avatarFelipeMoura from "../public/images/avatar_felipe_moura.jpg";
@@ -177,23 +177,12 @@ const IndexPage: React.FC = () => {
           },
         }}
       />
-      <div className="text-center">
-        <h2 className="text-2xl font-bold">{t("help.title")}</h2>
-        <div className="grid grid-cols-4">
-          {logos.map((logo) => (
-            <div key={logo.text} className="flex flex-col justify-center">
-              <Image
-                src={logo.logo.src}
-                style={{ padding: "30px" }}
-                alt={"logo"}
-                width={200}
-                height={200}
-              />
-              <p>{logo.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <SupportSection
+        logos={logos}
+        i18n={{
+          title: t("supportSection.title"),
+        }}
+      />
     </div>
   );
 };

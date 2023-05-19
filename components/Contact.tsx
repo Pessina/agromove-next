@@ -12,9 +12,9 @@ type ContactProps = {
 
 const Contact: React.FC<ContactProps> = ({ i18n }) => {
   return (
-    <div className="flex items-center justify-center py-10">
-      <h2>{i18n.title}</h2>
-      <p>{i18n.subtitle}</p>
+    <div className="flex flex-col items-center justify-center py-10 gap-4 max-w-[700px] text-center">
+      <h2 className="text-3xl font-bold">{i18n.title}</h2>
+      <p className="text-lg">{i18n.subtitle}</p>
       <EmailForm
         i18n={i18n.emailForm}
         className="w-[80%] px-auto py-5 flex items-center flex-col justify-center"

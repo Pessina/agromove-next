@@ -60,11 +60,11 @@
         "title": "Chat"
       },
       {
-        "text": "Quando se trata de informações mais detalhadas, nós usamos outros canais para melhorar a nossa comunicação. Você receberá semanalmente acesso aos nossos informativos e vídeos feitos por nosso fundador, comentando sobre os principais impactos da política e econômica na produção agrícola e pecuária. Se você preferir, pode receber tudo direto no seu email.",
+        "text": "Com a Agromove, você tem atualizações semanais com informativos e vídeos detalhados, destacando a política e economia na agropecuária. Se preferir, pode receber tudo no Telegram ou email.",
         "title": "Informativos e Vídeos"
       }
     ],
-    "help": {
+    "supportSection": {
       "title": "Apoio"
     },
     "hero1": {

@@ -26,7 +26,7 @@ const GridCards: React.FC<GridCardsProps> = ({ columns, cards }) => {
     <div className="grid grid-cols-3 gap-4">
       {cards.map((card) => (
         <Card
-          className="flex flex-col items-center justify-center gap-2"
+          className="flex flex-col items-center justify-center gap-3"
           key={card.link}
           content={
             <>
@@ -37,8 +37,8 @@ const GridCards: React.FC<GridCardsProps> = ({ columns, cards }) => {
                 width={200}
                 className="h-[72px] w-auto"
               />
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
+              <h3 className="text-lg font-semibold">{card.title}</h3>
+              <p className="text-sm">{card.text}</p>
               {!!card.cta && (
                 <Link href={card.link} passHref>
                   <Button className="w-[250px]">{card.cta}</Button>

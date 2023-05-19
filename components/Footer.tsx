@@ -38,7 +38,7 @@ type FooterProps = {
 
 const Footer: React.FC<FooterProps> = ({ i18n }) => {
   return (
-    <div className="bg-gray-200 mt-18 py-15 align-middle p-16 grid grid-cols-2">
+    <div className="bg-gray-200 mt-18 py-15 p-16 flex justify-around">
       <Image
         src={logo.src}
         alt="logo"
