@@ -1,16 +1,13 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useMemo } from "react";
-import Slider from "react-slick";
 
 import Contact from "../components/Contact";
 import GridCards from "../components/GridCards";
 import Hero from "../components/Hero";
 import MainSection from "../components/MainSection";
+import MediaSection from "../components/MediaSection";
 import Review from "../components/Review";
 import Video from "../components/Video";
 import avatarAlberto from "../public/images/avatar_alberto.jpg";
@@ -63,16 +60,6 @@ const logos = [
     text: "",
   },
 ];
-
-const settings = {
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  autoplaySpeed: 1500,
-  slidesToShow: 3,
-  // slidesToScroll: 3,
-  centerMode: true,
-};
 
 const IndexPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "home" });
@@ -171,25 +158,13 @@ const IndexPage: React.FC = () => {
         />
       </div>
       <Video id="hd2Yg4NU1Aw" title={t("video.title")} className="mt-8" />
-      <div>
-        <h2>{t("mediaSection.title")}</h2>
-        <Slider {...settings}>
-          {logosMidia.map((element) => (
-            <div key={element.src}>
-              <Image
-                alt={"midia images"}
-                style={{ margin: "0px auto" }}
-                src={element.src}
-                height={200}
-                width={200}
-              />
-            </div>
-          ))}
-        </Slider>
-        <a href="https://blog.agromove.com.br/agromove-na-midia/">
-          {t("mediaSection.seeNews")}
-        </a>
-      </div>
+      <MediaSection
+        logosMidia={logosMidia}
+        i18n={{
+          title: t("mediaSection.title"),
+          seeNews: t("mediaSection.seeNews"),
+        }}
+      />
       <GridCards columns={3} cards={cardsFeatures} />
       <Contact
         i18n={{
