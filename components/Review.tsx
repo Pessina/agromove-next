@@ -17,12 +17,15 @@ type ReviewProps = {
 
 const Review: React.FC<ReviewProps> = ({ person, text, reversed }) => {
   return (
-    <div className="grid-cols-12">
-      <div className="cols-span-4">
+    <div
+      className={`flex flex-row items-center gap-24
+    ${reversed ? "flex-row-reverse" : ""}`}
+    >
+      <div className="shrink-0">
         {person.image && (
           <Image
             src={person.image.src}
-            className="h-[112px] w-[112px] mb-4"
+            className="h-[112px] w-[112px] mb-4 rounded-full shrink-0"
             alt="logo"
             height={200}
             width={200}
@@ -31,9 +34,7 @@ const Review: React.FC<ReviewProps> = ({ person, text, reversed }) => {
         <b>{person.name}</b>
         <p>{person.job}</p>
       </div>
-      <div className="cols-span-8">
-        <p>{text}</p>
-      </div>
+      <p>{text}</p>
     </div>
   );
 };

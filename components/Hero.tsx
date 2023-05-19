@@ -9,6 +9,7 @@ type HeroProps = {
   title: string;
   phrase: string;
   textPosition: "left" | "right";
+  imageClassName?: string;
 };
 
 const Hero: React.FC<HeroProps> = ({
@@ -17,24 +18,25 @@ const Hero: React.FC<HeroProps> = ({
   title,
   phrase,
   textPosition,
+  imageClassName = "",
 }) => {
   return (
     <div
-      className={`flex items-center gap-40 flex-row
+      className={`flex items-center flex-row h-[600px] justify-between gap-20
       ${textPosition === "right" ? "flex-row-reverse" : ""}`}
     >
-      <div className="grow-[3] shrink-0 h-full">
-        <Image
-          alt={alt}
-          src={imagePath.src}
-          height={200}
-          width={200}
-          className="w-full h-auto"
-        />
-      </div>
+      <Image
+        alt={alt}
+        src={imagePath.src}
+        height={600}
+        width={600}
+        className={`${imageClassName}`}
+      />
       <div className="grow max-w-[400px]">
-        <h2 className="text-3xl">{title}</h2>
-        <p>{phrase}</p>
+        <div>
+          <h2 className="text-3xl font-bold">{title}</h2>
+          <p className="mt-2">{phrase}</p>
+        </div>
       </div>
     </div>
   );

@@ -99,7 +99,7 @@ const IndexPage: React.FC = () => {
   );
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 flex flex-col items-center justify-center">
       <MainSection
         i18n={{
           title: t("mainSection.title"),
@@ -111,13 +111,14 @@ const IndexPage: React.FC = () => {
           },
         }}
       />
-      <div className="px-[120px] space-y-10">
+      <div className="space-y-10">
         <Hero
           alt="none"
           imagePath={probabilidadeQuedaBoi}
           title={t("hero1.title")}
           phrase={t("hero1.phrase")}
           textPosition="left"
+          imageClassName="h-[300px] w-auto"
         />
         <Hero
           alt="none"
@@ -125,6 +126,7 @@ const IndexPage: React.FC = () => {
           title={t("hero2.title")}
           phrase={t("hero2.phrase")}
           textPosition="right"
+          imageClassName="h-[500px] w-auto"
         />
         <Hero
           alt="none"
@@ -136,36 +138,38 @@ const IndexPage: React.FC = () => {
         <Hero
           alt="none"
           imagePath={avatarFlavio}
-          title={t("hero3.title")}
-          phrase={t("hero3.phrase")}
+          title={t("hero4.title")}
+          phrase={t("hero4.phrase")}
           textPosition="right"
         />
       </div>
-      <Review
-        person={{
-          image: avatarFelipeMoura,
-          name: t("review1.name"),
-          job: t("review1.job"),
-        }}
-        text={t("review1.text")}
-      />
-      <Review
-        reversed
-        person={{
-          image: avatarEdison,
-          name: t("review2.name"),
-          job: t("review2.job"),
-        }}
-        text={t("review2.text")}
-      />
-      <Review
-        person={{
-          image: avatarTiago,
-          name: t("review3.name"),
-          job: t("review3.job"),
-        }}
-        text={t("review2.text")}
-      />
+      <div className="space-y-12 max-w-[1200px]">
+        <Review
+          person={{
+            image: avatarFelipeMoura,
+            name: t("review1.name"),
+            job: t("review1.job"),
+          }}
+          text={t("review1.text")}
+        />
+        <Review
+          reversed
+          person={{
+            image: avatarEdison,
+            name: t("review2.name"),
+            job: t("review2.job"),
+          }}
+          text={t("review2.text")}
+        />
+        <Review
+          person={{
+            image: avatarTiago,
+            name: t("review3.name"),
+            job: t("review3.job"),
+          }}
+          text={t("review2.text")}
+        />
+      </div>
       <Video id="hd2Yg4NU1Aw" title={t("video.title")} />
       <div>
         <h2>{t("mediaSection.title")}</h2>
