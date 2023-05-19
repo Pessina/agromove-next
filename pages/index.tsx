@@ -99,7 +99,7 @@ const IndexPage: React.FC = () => {
   );
 
   return (
-    <div className="space-y-10 flex flex-col items-center justify-center">
+    <div className="gap-y-10 flex flex-col items-center justify-center">
       <MainSection
         i18n={{
           title: t("mainSection.title"),
@@ -143,7 +143,7 @@ const IndexPage: React.FC = () => {
           textPosition="right"
         />
       </div>
-      <div className="space-y-12 max-w-[1200px]">
+      <div className="flex flex-col gap-10 max-w-[1200px]">
         <Review
           person={{
             image: avatarFelipeMoura,
@@ -170,7 +170,7 @@ const IndexPage: React.FC = () => {
           text={t("review2.text")}
         />
       </div>
-      <Video id="hd2Yg4NU1Aw" title={t("video.title")} />
+      <Video id="hd2Yg4NU1Aw" title={t("video.title")} className="mt-8" />
       <div>
         <h2>{t("mediaSection.title")}</h2>
         <Slider {...settings}>
