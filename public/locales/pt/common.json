@@ -160,5 +160,9 @@
     "quickLinks": "Links rápidos",
     "termsOfService": "Termos de serviço",
     "whatsapp": "Whatsapp: {{number}}"
+  },
+  "validation": {
+    "required": "Campo obrigatório",
+    "invalid": "Formato inválido"
   }
 }

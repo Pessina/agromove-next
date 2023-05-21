@@ -1,9 +1,11 @@
 import emailjs from "@emailjs/browser";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React from "react";
+import React, { useMemo } from "react";
 import { useForm } from "react-hook-form";
+import * as Yup from "yup";
 
 import Button from "../components/Button";
 import Input from "../components/Forms/Input";
@@ -19,18 +21,39 @@ interface FormData {
 
 const FormsPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "forms" });
+  const { t: tValidation } = useTranslation("", { keyPrefix: "validation" });
   const router = useRouter();
   const {
     query: { keyword },
   } = router;
 
-  const { register, handleSubmit } = useForm<FormData>({
+  const validationSchema = useMemo(
+    () =>
+      Yup.object().shape({
+        name: Yup.string().required(tValidation("required")),
+        email: Yup.string()
+          .email(tValidation("invalid"))
+          .required(tValidation("required")),
+        phone: Yup.string()
+          .required(tValidation("required"))
+          .matches(/^\(\d{2}\) \d{4,5}-\d{4}$/, tValidation("invalid")),
+        area: Yup.string().required(tValidation("required")),
+      }),
+    [tValidation]
+  );
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
     defaultValues: {
       name: "",
       email: keyword as string,
       phone: "",
       area: "",
     },
+    resolver: yupResolver(validationSchema),
   });
 
   const options = createArray(8, 1, 1).map((number) => ({
@@ -57,16 +80,19 @@ const FormsPage: React.FC = () => {
       <Input
         label={t("fields.name.label")}
         placeholder={t("fields.name.placeholder")}
+        error={errors.name?.message}
         {...register("name", { required: true })}
       />
       <Input
         label={t("fields.email.label")}
         placeholder={t("fields.email.placeholder")}
+        error={errors.email?.message}
         {...register("email", { required: true })}
       />
       <Input
         label={t("fields.phone.label")}
         placeholder={t("fields.phone.placeholder")}
+        error={errors.phone?.message}
         {...register("phone", { required: true })}
         onChange={(event) => {
           event.target.value = formatPhone(event.target.value);
@@ -75,6 +101,7 @@ const FormsPage: React.FC = () => {
       <Select
         label={t("fields.area.label")}
         placeholder={t("fields.area.placeholder")}
+        error={errors.area?.message}
         {...register("area", { required: true })}
       >
         {options.map((option) => (
