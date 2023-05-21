@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 import Button from "./Button";
-import Input from "./Input";
+import Input from "./Forms/Input";
 
 export type EmailFormI18N = {
   emailPlaceholder: string;

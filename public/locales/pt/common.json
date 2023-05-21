@@ -14,7 +14,17 @@
     "fields": {
       "area": {
         "label": "Qual a sua área de atuação?",
-        "placeholder": "Área"
+        "placeholder": "Área",
+        "options": {
+          "1": "Pecuarista",
+          "2": "Agricultor",
+          "3": "Compra e venda de gado",
+          "4": "Compra e venda de produtos agrícolas",
+          "5": "Frigoríficos",
+          "6": "Insumos",
+          "7": "Consultoria",
+          "8": "Outros"
+        }
       },
       "email": {
         "label": "Qual o seu email?",
