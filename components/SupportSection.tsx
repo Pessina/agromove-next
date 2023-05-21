@@ -19,9 +19,9 @@ interface SupportSectionProps {
 
 const SupportSection: React.FC<SupportSectionProps> = ({ logos, i18n }) => {
   return (
-    <div className="text-center space-y-8">
-      <h2 className="text-2xl font-bold">{i18n.title}</h2>
-      <div className="flex gap-10 items-center">
+    <div className="text-center">
+      <h2 className="text-2xl font-bold mb-8">{i18n.title}</h2>
+      <div className="flex flex-col md:flex-row gap-10">
         {logos.map((logo, index) => (
           <div key={index} className="flex flex-col justify-center">
             <Image src={logo.logo.src} alt="logo" width={200} height={200} />
