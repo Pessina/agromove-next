@@ -17,7 +17,7 @@ const Contact: React.FC<ContactProps> = ({ i18n }) => {
       <p className="text-lg">{i18n.subtitle}</p>
       <EmailForm
         i18n={i18n.emailForm}
-        className="w-[80%] px-auto py-5 flex items-center flex-col justify-center"
+        className="px-auto py-5 flex items-center flex-col justify-center"
       />
     </div>
   );

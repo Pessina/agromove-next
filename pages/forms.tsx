@@ -85,6 +85,7 @@ const FormsPage: React.FC = () => {
       }}
     >
       <Input
+        autoFocus
         label={t("fields.name.label")}
         placeholder={t("fields.name.placeholder")}
         error={errors.name?.message}
