@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 import Button from "./Button";
@@ -17,9 +17,20 @@ type EmailFormProps = {
 
 const EmailForm: React.FC<EmailFormProps> = ({ i18n, className }) => {
   const [email, setEmail] = useState("");
+  const router = useRouter();
+
+  const onSubmit = () => {
+    router.push({ pathname: "/forms", query: { keyword: email } });
+  };
 
   return (
-    <form className={`${className} flex flex-col items-center`}>
+    <form
+      className={`${className} flex flex-col items-center`}
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit();
+      }}
+    >
       <Input
         placeholder={i18n.emailPlaceholder}
         type="email"
@@ -28,10 +39,8 @@ const EmailForm: React.FC<EmailFormProps> = ({ i18n, className }) => {
         onChange={(e) => setEmail(e.target.value)}
         className="w-[300px]"
       />
-      <Button className="w-fit mt-4">
-        <Link href={{ pathname: "/forms", query: { keyword: email } }}>
-          {i18n.cta}
-        </Link>
+      <Button className="w-fit mt-4" type="submit">
+        {i18n.cta}
       </Button>
       <small className="mt-2">{i18n.hint}</small>
     </form>

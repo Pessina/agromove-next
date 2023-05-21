@@ -17,9 +17,10 @@ type MenuItems = {
 
 type HeaderProps = {
   menuItems: MenuItems;
+  className?: string;
 };
 
-const Header: React.FC<HeaderProps> = ({ menuItems }) => {
+const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
   const router = useRouter();
 
   const onClickHandle = () => {
@@ -57,7 +58,9 @@ const Header: React.FC<HeaderProps> = ({ menuItems }) => {
   );
 
   return (
-    <div className="flex justify-between items-center px-16 h-[72px] shadow-md sticky top-0 bg-white">
+    <div
+      className={`${className} flex justify-between items-center px-16 h-[72px] shadow-md sticky top-0 bg-white z-10`}
+    >
       <div className="flex items-center gap-2 h-full">
         <Link href="/" passHref className="mr-4">
           <Image

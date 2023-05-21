@@ -165,7 +165,7 @@ const IndexPage: React.FC = () => {
           seeNews: t("mediaSection.seeNews"),
         }}
       />
-      <GridCards columns={3} cards={cardsFeatures} />
+      <GridCards cards={cardsFeatures} />
       <Contact
         i18n={{
           title: t("contactLast.title"),

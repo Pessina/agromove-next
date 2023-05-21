@@ -17,17 +17,17 @@ type CardData = {
 };
 
 type GridCardsProps = {
-  columns: number;
   cards: CardData[];
+  className?: string;
 };
 
-const GridCards: React.FC<GridCardsProps> = ({ columns, cards }) => {
+const GridCards: React.FC<GridCardsProps> = ({ className = "", cards }) => {
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {cards.map((card) => (
+    <div className={`${className} grid grid-cols-3 gap-4`}>
+      {cards.map((card, index) => (
         <Card
           className="flex flex-col items-center justify-center gap-3"
-          key={card.link}
+          key={index}
           content={
             <>
               <Image

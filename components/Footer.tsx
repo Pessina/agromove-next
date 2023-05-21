@@ -34,11 +34,14 @@ type FooterProps = {
     whatsapp: (number: string) => string;
     email: (email: string) => string;
   };
+  className?: string;
 };
 
-const Footer: React.FC<FooterProps> = ({ i18n }) => {
+const Footer: React.FC<FooterProps> = ({ i18n, className = "" }) => {
   return (
-    <div className="bg-gray-200 mt-18 py-15 p-16 flex justify-around">
+    <div
+      className={`${className} bg-gray-200 mt-18 py-15 p-16 flex justify-around`}
+    >
       <Image
         src={logo.src}
         alt="logo"

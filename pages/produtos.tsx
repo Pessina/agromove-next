@@ -2,7 +2,6 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useMemo } from "react";
 
-import Footer from "../components/Footer";
 import GridCards from "../components/GridCards";
 import computer from "../public/images/computer.svg";
 import ebook from "../public/images/ebook.svg";
@@ -13,7 +12,6 @@ import course from "../public/images/video-lecture.svg";
 
 const ProductsPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "products" });
-  const { t: tFooter } = useTranslation("", { keyPrefix: "footer" });
 
   const cardsFeatures = useMemo(
     () => [
@@ -63,17 +61,7 @@ const ProductsPage: React.FC = () => {
     [t]
   );
 
-  return (
-    <>
-      <GridCards columns={3} cards={cardsFeatures} />
-      <Footer
-        i18n={{
-          whatsapp: (number) => tFooter("whatsapp", { number }),
-          email: (email) => tFooter("email", { email }),
-        }}
-      />
-    </>
-  );
+  return <GridCards className="mt-16" cards={cardsFeatures} />;
 };
 
 export async function getStaticProps({ locale }) {

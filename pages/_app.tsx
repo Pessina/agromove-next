@@ -38,6 +38,7 @@ const Layout: React.FC<any> = ({ Component, pageProps }) => {
   return (
     <div className="font-barlow flex flex-col">
       <Header
+        className="shrink-0"
         menuItems={{
           agromove: t("header.agromove"),
           products: t("header.products"),
@@ -47,10 +48,11 @@ const Layout: React.FC<any> = ({ Component, pageProps }) => {
           login: t("header.login"),
         }}
       />
-      <div className="px-16 pb-16">
+      <div className="px-16 pb-16 grow">
         <Component {...pageProps} />
       </div>
       <Footer
+        className="shrink-0"
         i18n={{
           whatsapp: (number: string) => tFooter("whatsapp", { number }),
           email: (email: string) => tFooter("email", { email }),

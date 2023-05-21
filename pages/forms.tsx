@@ -56,11 +56,15 @@ const FormsPage: React.FC = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const options = createArray(8, 1, 1).map((number) => ({
-    value: t(`fields.area.options.${number}`),
-    text: t(`fields.area.options.${number}`),
-    key: number,
-  }));
+  const options = useMemo(
+    () =>
+      createArray(8, 1, 1).map((number) => ({
+        value: t(`fields.area.options.${number}`),
+        text: t(`fields.area.options.${number}`),
+        key: number,
+      })),
+    [t]
+  );
 
   const onSubmit = handleSubmit((data: FormData) => {
     emailjs.send(
@@ -75,7 +79,10 @@ const FormsPage: React.FC = () => {
   return (
     <form
       className="h-screen flex flex-col gap-4 items-center mt-16 max-w-[350px] mx-auto"
-      onSubmit={onSubmit}
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit();
+      }}
     >
       <Input
         label={t("fields.name.label")}
