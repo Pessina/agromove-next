@@ -105,7 +105,7 @@ const IndexPage: React.FC = () => {
           title={t("hero1.title")}
           phrase={t("hero1.phrase")}
           textPosition="left"
-          imageClassName="h-[300px] w-auto"
+          imageClassName="lg:h-[300px] w-auto"
         />
         <Hero
           alt="none"
@@ -113,7 +113,7 @@ const IndexPage: React.FC = () => {
           title={t("hero2.title")}
           phrase={t("hero2.phrase")}
           textPosition="right"
-          imageClassName="h-[500px] w-auto"
+          imageClassName="lg:h-[500px] w-auto"
         />
         <Hero
           alt="none"

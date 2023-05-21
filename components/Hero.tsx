@@ -30,7 +30,7 @@ const Hero: React.FC<HeroProps> = ({
         src={imagePath.src}
         height={600}
         width={600}
-        className={`${imageClassName} w-full h-auto md:h-initial md:w-initial`}
+        className={`${imageClassName}`}
       />
       <div className="grow w-full md:max-w-[400px]">
         <div>

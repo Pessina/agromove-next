@@ -119,7 +119,7 @@ const FormsPage: React.FC = () => {
         ))}
       </Select>
       <div>
-        <Button className="w-[250px] py-3 px-auto" type="submit">
+        <Button className="md:w-[250px] py-3 px-auto" type="submit">
           {t("cta")}
         </Button>
       </div>
