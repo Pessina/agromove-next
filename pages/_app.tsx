@@ -30,7 +30,7 @@ const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
           login: t("header.login"),
         }}
       />
-      <div className="px-4 lg:px-16 pb-16 grow">
+      <div className="px-4 md:px-8 lg:px-16 pb-16 grow">
         <Component {...pageProps} />
       </div>
       <Footer
