@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 
+import { AppProps } from "next/app";
 import { appWithTranslation, useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useEffect } from "react";
@@ -8,28 +9,9 @@ import TagManager from "react-gtm-module";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-const Layout: React.FC<any> = ({ Component, pageProps }) => {
+const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { t } = useTranslation("", { keyPrefix: "app" });
   const { t: tFooter } = useTranslation("", { keyPrefix: "footer" });
-
-  useEffect(() => {
-    const configInputs = () => {
-      const elements = document.getElementsByTagName("INPUT");
-      for (let i = 0; i < elements.length; i++) {
-        (elements[i] as HTMLElement).oninvalid = function (e: any) {
-          e.target.setCustomValidity("");
-          if (!e.target.validity.valid) {
-            e.target.setCustomValidity("Por favor preencha este campo");
-          }
-        };
-        (elements[i] as HTMLElement).oninput = function (e: any) {
-          e.target.setCustomValidity("");
-        };
-      }
-    };
-
-    configInputs();
-  }, []);
 
   useEffect(() => {
     TagManager.initialize({ gtmId: "GTM-MH3NVGB" });
