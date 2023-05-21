@@ -40,14 +40,14 @@ type FooterProps = {
 const Footer: React.FC<FooterProps> = ({ i18n, className = "" }) => {
   return (
     <div
-      className={`${className} bg-gray-200 mt-18 py-15 p-16 flex justify-around`}
+      className={`${className} bg-gray-200 mt-18 py-15 p-16 flex justify-around flex-col md:flex-row gap-10 items-center md:items-initial`}
     >
       <Image
         src={logo.src}
         alt="logo"
         width={100}
         height={100}
-        className="h-[100px] w-auto"
+        className="h-[100px] w-auto shrink-0"
       />
       <div className="flex flex-col gap-2">
         <p>{i18n.whatsapp("(14) 9 9134-8132")} </p>

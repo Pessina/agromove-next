@@ -17,7 +17,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     <button
       {...rest}
       ref={ref}
-      className={`px-4 py-2 rounded-md font-semibold
+      className={`px-4 py-2 rounded-md font-semibold text-sm md:text-base
       ${className} 
       ${rest.disabled ? "bg-gray-100" : ""}
       ${theme === ButtonTheme.GREEN ? "bg-green-800 text-white" : ""}`}
