@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 
 import logo from "../public/images/logo.png";
+import { BurgerMenuIcon } from "../utils/icons";
 import Button from "./Button";
+import Sidebar from "./Sidebar";
 
 type MenuItems = {
   agromove: string;
@@ -22,14 +24,15 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
   const router = useRouter();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const onClickHandle = () => {
     router.push("https://agromove.sharepoint.com/sites/AgromovePremium");
   };
 
-  const checkPage = () => {
+  const hasLoginButton = useMemo(() => {
     return router.pathname.indexOf("forms") === -1;
-  };
+  }, [router.pathname]);
 
   const menuItemsArr = useMemo(
     () => [
@@ -84,12 +87,27 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
           ))}
         </div>
       </div>
-      {checkPage() && (
-        <Button onClick={() => onClickHandle()}>{menuItems.login}</Button>
+      {hasLoginButton && (
+        <Button className="hidden lg:block" onClick={() => onClickHandle()}>
+          {menuItems.login}
+        </Button>
       )}
-      {/* <Grid.Row only="mobile tablet">
-                <Icon name="bars" size="big" onClick={() => burgerMenu()} />
-              </Grid.Row> */}
+
+      <Sidebar
+        trigger={
+          <button
+            className="lg:hidden"
+            onClick={() => setIsSidebarOpen((prev) => !prev)}
+          >
+            <BurgerMenuIcon />
+          </button>
+        }
+        isOpen={isSidebarOpen}
+        position={"left"}
+        onClose={() => setIsSidebarOpen(false)}
+      >
+        <div>test content</div>
+      </Sidebar>
     </div>
   );
 };
