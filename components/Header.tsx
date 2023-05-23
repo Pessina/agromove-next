@@ -105,7 +105,33 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
         position={"left"}
         onClose={() => setIsSidebarOpen(false)}
       >
-        <div>test content</div>
+        <ul className="flex flex-col">
+          <Link
+            href="/"
+            passHref
+            className="mb-6 px-4 mt-4"
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <Image
+              src={logo.src}
+              alt="logo"
+              width={50}
+              height={50}
+              className="h-[40px] w-auto"
+            />
+          </Link>
+          {menuItemsArr.map((item) => (
+            <Link
+              href={item.href}
+              key={item.href}
+              onClick={() => setIsSidebarOpen(false)}
+              className="text-black opacity-70 h-12 px-4 py-2 hover:bg-gray-100 hover:text-black
+              flex items-center w-full border-b-[1px] border-gray-300"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </ul>
       </Sidebar>
     </div>
   );

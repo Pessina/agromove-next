@@ -55,8 +55,13 @@ const Sidebar: React.FC<SidebarProps> = ({
       {isContentVisible && (
         <Portal>
           <div
+            className={`fixed top-0 left-0 z-20 w-full h-full bg-black
+            ${isOpen ? "animate-fade-in" : "animate-fade-out"}`}
+            onClick={onClose}
+          />
+          <div
             ref={ref}
-            className={`fixed top-0 h-full w-64 z-20 bg-gray-200
+            className={`fixed top-0 h-full w-[250px] z-30 bg-white shadow-2xl
               ${isOpen ? "animate-slide-in" : "animate-slide-out"}
               ${position === "left" ? "left-0" : "right-0"}
             `}

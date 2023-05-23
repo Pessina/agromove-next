@@ -11,6 +11,8 @@ module.exports = {
       animation: {
         "slide-in": "slideIn 300ms ease-in-out forwards",
         "slide-out": "slideOut 300ms ease-in-out forwards",
+        "fade-in": "fadeIn 300ms ease-in-out forwards",
+        "fade-out": "fadeOut 300ms ease-in-out forwards",
       },
       keyframes: {
         slideIn: {
@@ -27,6 +29,22 @@ module.exports = {
           },
           "100%": {
             transform: "translateX(-100%)",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "50%",
+          },
+        },
+        fadeOut: {
+          "0%": {
+            opacity: "50%",
+          },
+          "100%": {
+            opacity: "0",
           },
         },
       },
