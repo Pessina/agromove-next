@@ -6,7 +6,7 @@ type PortalProps = {
 };
 
 export const Portal: React.FC<PortalProps> = ({ children }) => {
-  const container = useMemo(() => document.createElement("div"), []);
+  const container = useMemo(() => document?.createElement("div"), []);
 
   useEffect(() => {
     document.body.appendChild(container);

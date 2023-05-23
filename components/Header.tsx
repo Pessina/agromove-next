@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
 
   return (
     <div
-      className={`${className} flex justify-between items-center px-16 h-[72px] shadow-md sticky top-0 bg-white z-10`}
+      className={`${className} flex justify-between items-center h-[72px] shadow-md sticky top-0 bg-white z-10`}
     >
       <div className="flex items-center gap-2 h-full">
         <Link href="/" passHref className="mr-4">
@@ -92,7 +92,6 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
           {menuItems.login}
         </Button>
       )}
-
       <Sidebar
         trigger={
           <button

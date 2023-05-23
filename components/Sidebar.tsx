@@ -3,7 +3,7 @@ import React, {
   MouseEvent,
   ReactElement,
   ReactNode,
-  useCallback,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -26,19 +26,10 @@ const Sidebar: React.FC<SidebarProps> = ({
   children,
   trigger,
 }) => {
-  const [isEntered, setIsEntered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const [isContentVisible, setIsContentVisible] = useState(isOpen);
 
   useOnClickOutside(() => onClose(), [ref], { enabled: isOpen });
-
-  const sidebarClasses = `fixed top-0 h-full w-64 z-20 bg-gray-200 transition-transform duration-300 ease-in-out
-    ${position === "left" ? "left-0" : "right-0"}
-    ${isOpen ? "transform translate-x-0" : "transform translate-x-full"}`;
-
-  const handleTransitionEnd = useCallback(() => {
-    setIsEntered(isOpen);
-    if (!isOpen) onClose();
-  }, [isOpen, onClose]);
 
   const triggerElement = cloneElement(trigger, {
     onClick: (e: MouseEvent) => {
@@ -47,21 +38,29 @@ const Sidebar: React.FC<SidebarProps> = ({
     },
   });
 
+  useEffect(() => {
+    if (isOpen) {
+      setIsContentVisible(true);
+    } else {
+      const timer = setTimeout(() => {
+        setIsContentVisible(false);
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
   return (
     <>
       {triggerElement}
-      {isOpen && (
+      {isContentVisible && (
         <Portal>
           <div
             ref={ref}
-            className={sidebarClasses}
-            onTransitionEnd={handleTransitionEnd}
+            className={`fixed top-0 h-full w-64 z-20 bg-gray-200
+              ${isOpen ? "animate-slide-in" : "animate-slide-out"}
+              ${position === "left" ? "left-0" : "right-0"}
+            `}
           >
-            {isEntered && (
-              <button className="absolute top-4 right-4" onClick={onClose}>
-                Close
-              </button>
-            )}
             {children}
           </div>
         </Portal>

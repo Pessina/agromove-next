@@ -20,7 +20,7 @@ const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div className="font-barlow flex flex-col">
       <Header
-        className="shrink-0"
+        className="px-4 md:px-8 lg:px-16 shrink-0"
         menuItems={{
           agromove: t("header.agromove"),
           products: t("header.products"),
