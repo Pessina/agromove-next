@@ -1,33 +1,34 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect, useMemo } from "react";
 
-type Event = MouseEvent;
-type ClickOutsideOptions = { enabled?: boolean };
-const defaultOptions: ClickOutsideOptions = { enabled: true };
+type Event = MouseEvent | TouchEvent;
 
 export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
-  handler?: (event: Event) => void,
-  refs?: RefObject<T>[],
-  options: ClickOutsideOptions = defaultOptions
+  handler: (event: Event) => void,
+  refs: RefObject<T>[] | RefObject<T>,
+  isEnabled: boolean = true
 ) => {
+  const refsArray = useMemo(
+    () => (Array.isArray(refs) ? refs : [refs]),
+    [refs]
+  );
+
   useEffect(() => {
-    let listener: ((event: Event) => void) | undefined;
+    const listener = (event: Event) => {
+      const isOutside = refsArray.every(
+        (ref) => !ref.current?.contains(event.target as Node)
+      );
 
-    if (options.enabled) {
-      listener = (event: Event) => {
-        const isOutside =
-          refs &&
-          refs.every((ref) => !ref.current?.contains(event?.target as Node));
+      if (isOutside) handler(event);
+    };
 
-        if (isOutside) handler?.(event);
-      };
-
-      document.addEventListener("click", listener);
+    if (isEnabled) {
+      document.addEventListener("mousedown", listener);
+      document.addEventListener("touchstart", listener);
     }
 
     return () => {
-      if (listener) {
-        document.removeEventListener("click", listener);
-      }
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
     };
-  }, [refs, handler, options.enabled]);
+  }, [handler, refsArray, isEnabled]);
 };

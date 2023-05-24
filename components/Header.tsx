@@ -26,10 +26,6 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const onClickHandle = () => {
-    router.push("https://agromove.sharepoint.com/sites/AgromovePremium");
-  };
-
   const hasLoginButton = useMemo(() => {
     return router.pathname.indexOf("forms") === -1;
   }, [router.pathname]);
@@ -88,9 +84,9 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
         </div>
       </div>
       {hasLoginButton && (
-        <Button className="hidden lg:block" onClick={() => onClickHandle()}>
-          {menuItems.login}
-        </Button>
+        <Link href="https://agromove.sharepoint.com/sites/AgromovePremium">
+          <Button className="hidden lg:block">{menuItems.login}</Button>
+        </Link>
       )}
       <Sidebar
         trigger={
@@ -104,14 +100,10 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
         isOpen={isSidebarOpen}
         position={"left"}
         onClose={() => setIsSidebarOpen(false)}
+        contentClassName="w-[250px]"
       >
         <ul className="flex flex-col">
-          <Link
-            href="/"
-            passHref
-            className="mb-6 px-4 mt-4"
-            onClick={() => setIsSidebarOpen(false)}
-          >
+          <Link href="/" passHref className="mb-6 px-4 mt-4">
             <Image
               src={logo.src}
               alt="logo"
@@ -124,7 +116,6 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
             <Link
               href={item.href}
               key={item.href}
-              onClick={() => setIsSidebarOpen(false)}
               className="text-black opacity-70 h-12 px-4 py-2 hover:bg-gray-100 hover:text-black
               flex items-center w-full border-b-[1px] border-gray-300"
             >

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 type PortalProps = {
@@ -6,14 +6,19 @@ type PortalProps = {
 };
 
 export const Portal: React.FC<PortalProps> = ({ children }) => {
-  const container = useMemo(() => document?.createElement("div"), []);
+  const [container, setContainer] = useState<Element | null>(null);
 
   useEffect(() => {
-    document.body.appendChild(container);
-    return () => {
-      document.body.removeChild(container);
-    };
-  }, [container]);
+    if (typeof window !== "undefined") {
+      const el = document.createElement("div");
+      document.body.appendChild(el);
+      setContainer(el);
 
-  return ReactDOM.createPortal(children, container);
+      return () => {
+        document.body.removeChild(el);
+      };
+    }
+  }, []);
+
+  return container ? ReactDOM.createPortal(children, container) : null;
 };

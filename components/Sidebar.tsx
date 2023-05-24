@@ -3,9 +3,7 @@ import React, {
   MouseEvent,
   ReactElement,
   ReactNode,
-  useEffect,
   useRef,
-  useState,
 } from "react";
 
 import { useOnClickOutside } from "../hooks/useOnClickOutside";
@@ -17,6 +15,8 @@ type SidebarProps = {
   onClose: () => void;
   children: ReactNode;
   trigger: ReactElement;
+  overlayClassName?: string;
+  contentClassName?: string;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -25,11 +25,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   onClose,
   children,
   trigger,
+  overlayClassName,
+  contentClassName,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isContentVisible, setIsContentVisible] = useState(isOpen);
 
-  useOnClickOutside(() => onClose(), [ref], { enabled: isOpen });
+  useOnClickOutside(() => onClose(), ref, isOpen);
 
   const triggerElement = cloneElement(trigger, {
     onClick: (e: MouseEvent) => {
@@ -38,38 +39,27 @@ const Sidebar: React.FC<SidebarProps> = ({
     },
   });
 
-  useEffect(() => {
-    if (isOpen) {
-      setIsContentVisible(true);
-    } else {
-      const timer = setTimeout(() => {
-        setIsContentVisible(false);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen]);
-
   return (
     <>
       {triggerElement}
-      {isContentVisible && (
-        <Portal>
-          <div
-            className={`fixed top-0 left-0 z-20 w-full h-full bg-black
-            ${isOpen ? "animate-fade-in" : "animate-fade-out"}`}
-            onClick={onClose}
-          />
-          <div
-            ref={ref}
-            className={`fixed top-0 h-full w-[250px] z-30 bg-white shadow-2xl
+      <Portal>
+        <div
+          className={`fixed top-0 left-0 w-full h-full bg-black cursor-pointer
+            ${isOpen ? "animate-fade-in z-10" : "animate-fade-out"}
+            ${overlayClassName}`}
+          onClick={onClose}
+        />
+        <div
+          ref={ref}
+          className={`fixed top-0 h-full z-10 bg-white
               ${isOpen ? "animate-slide-in" : "animate-slide-out"}
               ${position === "left" ? "left-0" : "right-0"}
+              ${contentClassName}
             `}
-          >
-            {children}
-          </div>
-        </Portal>
-      )}
+        >
+          {children}
+        </div>
+      </Portal>
     </>
   );
 };
