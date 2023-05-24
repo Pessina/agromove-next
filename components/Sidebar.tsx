@@ -3,6 +3,7 @@ import React, {
   MouseEvent,
   ReactElement,
   ReactNode,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -38,6 +39,14 @@ const Sidebar: React.FC<SidebarProps> = ({
       setHasInteracted(true);
     },
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
   return (
     <>
