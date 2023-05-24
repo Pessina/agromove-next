@@ -15,7 +15,7 @@ type SidebarProps = {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
-  trigger: ReactElement;
+  trigger: ReactElement<{ onClick?: (e: MouseEvent) => void }>;
   overlayClassName?: string;
   contentClassName?: string;
 };
@@ -35,7 +35,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   const triggerElement = cloneElement(trigger, {
     onClick: (e: MouseEvent) => {
       e.stopPropagation();
-      trigger.props?.onClick?.(e);
+      trigger.props.onClick?.(e);
       setHasInteracted(true);
     },
   });
