@@ -4,6 +4,7 @@ import React, {
   ReactElement,
   ReactNode,
   useRef,
+  useState,
 } from "react";
 
 import { useOnClickOutside } from "../hooks/useOnClickOutside";
@@ -11,7 +12,6 @@ import { Portal } from "./Portal";
 
 type SidebarProps = {
   isOpen: boolean;
-  position: "left" | "right";
   onClose: () => void;
   children: ReactNode;
   trigger: ReactElement;
@@ -21,7 +21,6 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({
   isOpen,
-  position,
   onClose,
   children,
   trigger,
@@ -29,13 +28,14 @@ const Sidebar: React.FC<SidebarProps> = ({
   contentClassName,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-
   useOnClickOutside(() => onClose(), ref, isOpen);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const triggerElement = cloneElement(trigger, {
     onClick: (e: MouseEvent) => {
       e.stopPropagation();
       trigger.props?.onClick?.(e);
+      setHasInteracted(true);
     },
   });
 
@@ -45,15 +45,26 @@ const Sidebar: React.FC<SidebarProps> = ({
       <Portal>
         <div
           className={`fixed top-0 left-0 w-full h-full bg-black cursor-pointer
-            ${isOpen ? "animate-fade-in z-10" : "animate-fade-out"}
+            ${
+              isOpen
+                ? "animate-fade-in z-10"
+                : hasInteracted
+                ? "animate-fade-out"
+                : "opacity-0"
+            }
             ${overlayClassName}`}
           onClick={onClose}
         />
         <div
           ref={ref}
-          className={`fixed top-0 h-full z-10 bg-white
-              ${isOpen ? "animate-slide-in" : "animate-slide-out"}
-              ${position === "left" ? "left-0" : "right-0"}
+          className={`fixed top-0 h-full z-10 bg-white left-0
+              ${
+                isOpen
+                  ? "animate-slide-in"
+                  : hasInteracted
+                  ? "animate-slide-out"
+                  : "-translate-x-full"
+              }
               ${contentClassName}
             `}
         >

@@ -98,7 +98,6 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
           </button>
         }
         isOpen={isSidebarOpen}
-        position={"left"}
         onClose={() => setIsSidebarOpen(false)}
         contentClassName="w-[250px]"
       >
