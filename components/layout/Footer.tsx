@@ -1,14 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-import logo from "../public/images/logo.png";
-import { BLOG_URL } from "../utils/constants";
+import { BLOG_URL } from "../../utils/constants";
 import {
   FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
   YouTubeIcon,
-} from "../utils/icons";
+} from "../../utils/icons";
+import logo from "../public/images/logo.png";
 
 const links = [
   {

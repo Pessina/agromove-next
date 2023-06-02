@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-import Button from "./Button";
-import Input from "./Forms/Input";
+import Input from "../forms/Input";
+import Button from "../general/Button";
 
 export type EmailFormI18N = {
   emailPlaceholder: string;

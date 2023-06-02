@@ -6,8 +6,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
 
 const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { t } = useTranslation("", { keyPrefix: "app" });

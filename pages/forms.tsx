@@ -7,9 +7,9 @@ import React, { useMemo } from "react";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 
-import Button from "../components/Button";
-import Input from "../components/Forms/Input";
-import Select from "../components/Forms/Select";
+import Input from "../components/forms/Input";
+import Select from "../components/forms/Select";
+import Button from "../components/general/Button";
 import { formatPhone } from "../utils/utils";
 
 interface FormData {

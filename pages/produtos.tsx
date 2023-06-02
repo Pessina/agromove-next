@@ -2,7 +2,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useMemo } from "react";
 
-import GridCards from "../components/GridCards";
+import GridCards from "../components/general/GridCards";
 import computer from "../public/images/computer.svg";
 import ebook from "../public/images/ebook.svg";
 import information from "../public/images/information.svg";

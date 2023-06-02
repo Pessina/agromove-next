@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import YouTube from "react-youtube";
 
-import LoaderSpinner from "./Loader";
+import LoaderSpinner from "../general/Loader";
 
-type VideoProps = {
+type VideoSectionProps = {
   title: string;
   id: string;
   className?: string;
 };
 
-const Video: React.FC<VideoProps> = ({ title, id, className }) => {
+const VideoSection: React.FC<VideoSectionProps> = ({
+  title,
+  id,
+  className,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
@@ -38,4 +42,4 @@ const Video: React.FC<VideoProps> = ({ title, id, className }) => {
   );
 };
 
-export default Video;
+export default VideoSection;

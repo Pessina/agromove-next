@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React from "react";
 
-import Button from "../components/Button";
+import Button from "../components/general/Button";
 
 const FormsPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "formsThanks" });

@@ -3,10 +3,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useMemo, useState } from "react";
 
+import { BurgerMenuIcon } from "../../utils/icons";
+import Button from "../general/Button";
+import Sidebar from "../general/Sidebar";
 import logo from "../public/images/logo.png";
-import { BurgerMenuIcon } from "../utils/icons";
-import Button from "./Button";
-import Sidebar from "./Sidebar";
 
 type MenuItems = {
   agromove: string;
