@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
+import logo from "../../public/images/logo.png";
 import { BLOG_URL } from "../../utils/constants";
 import {
   FacebookIcon,
@@ -8,7 +9,6 @@ import {
   LinkedInIcon,
   YouTubeIcon,
 } from "../../utils/icons";
-import logo from "../public/images/logo.png";
 
 const links = [
   {
