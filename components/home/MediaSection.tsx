@@ -44,8 +44,9 @@ const MediaSection: React.FC<MediaSectionProps> = ({ logosMidia, i18n }) => {
               alt="midia images"
               className="h-[70px] w-auto px-4"
               src={element.src}
-              height={200}
-              width={200}
+              height={100}
+              width={100}
+              loading="lazy"
             />
           </div>
         ))}

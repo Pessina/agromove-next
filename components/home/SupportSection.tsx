@@ -24,7 +24,13 @@ const SupportSection: React.FC<SupportSectionProps> = ({ logos, i18n }) => {
       <div className="flex flex-col md:flex-row gap-10">
         {logos.map((logo, index) => (
           <div key={index} className="flex flex-col justify-center">
-            <Image src={logo.logo.src} alt="logo" width={200} height={200} />
+            <Image
+              src={logo.logo.src}
+              alt="logo"
+              width={200}
+              height={200}
+              loading="lazy"
+            />
             <p className="mt-8">{logo.text}</p>
           </div>
         ))}

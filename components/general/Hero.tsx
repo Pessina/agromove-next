@@ -31,6 +31,7 @@ const Hero: React.FC<HeroProps> = ({
         height={600}
         width={600}
         className={`${imageClassName}`}
+        loading="lazy"
       />
       <div className="grow w-full md:max-w-[400px]">
         <div>
