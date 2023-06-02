@@ -20,19 +20,3 @@ export const formatPhone = (phone: string): string => {
     )}`;
   }
 };
-
-export const createArray = (
-  length: number,
-  interval: number,
-  start: number
-): number[] => {
-  const array: number[] = [];
-  let currentNumber = start;
-
-  for (let i = 0; i < length; i++) {
-    array.push(currentNumber);
-    currentNumber += interval;
-  }
-
-  return array;
-};

@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import Button from "../components/Button";
 import Input from "../components/Forms/Input";
 import Select from "../components/Forms/Select";
-import { createArray, formatPhone } from "../utils/utils";
+import { formatPhone } from "../utils/utils";
 
 interface FormData {
   name: string;
@@ -58,11 +58,11 @@ const FormsPage: React.FC = () => {
 
   const options = useMemo(
     () =>
-      createArray(8, 1, 1).map((number) => ({
-        value: t(`fields.area.options.${number}`),
-        text: t(`fields.area.options.${number}`),
-        key: number,
-      })),
+      Array.from({ length: 8 }, (_, i) => {
+        const number = i + 1;
+        const valueAndText = t(`fields.area.options.${number}`);
+        return { value: valueAndText, text: valueAndText, key: number };
+      }),
     [t]
   );
 
