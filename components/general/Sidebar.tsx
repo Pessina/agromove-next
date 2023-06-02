@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       {triggerElement}
       <Portal>
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-black cursor-pointer
+          className={`fixed top-0 left-0 w-full h-full bg-black cursor-pointer lg:hidden
             ${
               isOpen
                 ? "animate-fade-in z-10"
