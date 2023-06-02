@@ -55,12 +55,31 @@ const Footer: React.FC<FooterProps> = ({ i18n, className = "" }) => {
         <a href="https://blog.agromove.com.br">
           <p>{BLOG_URL}</p>
         </a>
-        <div className="mt-8 flex gap-3">
+        <div className="mt-4 flex gap-3">
           {links.map((link) => (
             <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
               {link.icon}
             </a>
           ))}
+        </div>
+        <div className="mt-4">
+          Icons made by{" "}
+          <a href="https://www.freepik.com/" title="Freepik">
+            Freepik{" "}
+          </a>
+          from{" "}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com{" "}
+          </a>
+          is licensed by{" "}
+          <a
+            href="http://creativecommons.org/licenses/by/3.0/"
+            title="Creative Commons BY 3.0"
+            target="_blank"
+            rel="noreferrer"
+          >
+            CC 3.0 BY
+          </a>
         </div>
       </div>
     </div>
