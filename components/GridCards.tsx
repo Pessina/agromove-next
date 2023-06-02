@@ -41,7 +41,7 @@ const GridCards: React.FC<GridCardsProps> = ({ className = "", cards }) => {
               />
               <h3 className="text-lg font-semibold">{card.title}</h3>
               <p className="text-sm grow">{card.text}</p>
-              {!!card.cta && (
+              {!!card.cta && !!card.link && (
                 <Link href={card.link} passHref>
                   <Button className="lg:w-[250px]">{card.cta}</Button>
                 </Link>

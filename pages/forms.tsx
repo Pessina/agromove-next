@@ -30,14 +30,14 @@ const FormsPage: React.FC = () => {
   const validationSchema = useMemo(
     () =>
       Yup.object().shape({
-        name: Yup.string().required(tValidation("required")),
+        name: Yup.string().required(tValidation("required") ?? ""),
         email: Yup.string()
-          .email(tValidation("invalid"))
-          .required(tValidation("required")),
+          .email(tValidation("invalid") ?? "")
+          .required(tValidation("required") ?? ""),
         phone: Yup.string()
-          .required(tValidation("required"))
-          .matches(/^\(\d{2}\) \d{4,5}-\d{4}$/, tValidation("invalid")),
-        area: Yup.string().required(tValidation("required")),
+          .required(tValidation("required") ?? "")
+          .matches(/^\(\d{2}\) \d{4,5}-\d{4}$/, tValidation("invalid") ?? ""),
+        area: Yup.string().required(tValidation("required") ?? ""),
       }),
     [tValidation]
   );
@@ -86,20 +86,20 @@ const FormsPage: React.FC = () => {
     >
       <Input
         autoFocus
-        label={t("fields.name.label")}
-        placeholder={t("fields.name.placeholder")}
+        label={t("fields.name.label") ?? ""}
+        placeholder={t("fields.name.placeholder") ?? ""}
         error={errors.name?.message}
         {...register("name", { required: true })}
       />
       <Input
-        label={t("fields.email.label")}
-        placeholder={t("fields.email.placeholder")}
+        label={t("fields.email.label") ?? ""}
+        placeholder={t("fields.email.placeholder") ?? ""}
         error={errors.email?.message}
         {...register("email", { required: true })}
       />
       <Input
-        label={t("fields.phone.label")}
-        placeholder={t("fields.phone.placeholder")}
+        label={t("fields.phone.label") ?? ""}
+        placeholder={t("fields.phone.placeholder") ?? ""}
         error={errors.phone?.message}
         {...register("phone", { required: true })}
         onChange={(event) => {
@@ -107,8 +107,8 @@ const FormsPage: React.FC = () => {
         }}
       />
       <Select
-        label={t("fields.area.label")}
-        placeholder={t("fields.area.placeholder")}
+        label={t("fields.area.label") ?? ""}
+        placeholder={t("fields.area.placeholder") ?? ""}
         error={errors.area?.message}
         {...register("area", { required: true })}
       >

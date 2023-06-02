@@ -58,8 +58,8 @@ const Sidebar: React.FC<SidebarProps> = ({
               isOpen
                 ? "animate-fade-in z-10"
                 : hasInteracted
-                ? "animate-fade-out"
-                : "opacity-0"
+                ? "animate-fade-out -z-10"
+                : "opacity-0 -z-10"
             }
             ${overlayClassName}`}
           onClick={onClose}
