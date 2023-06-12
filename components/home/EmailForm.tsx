@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-import Input from "../formss/Input";
+import Input from "../forms/Input";
 import Button from "../general/Button";
 
 export type EmailFormI18N = {
