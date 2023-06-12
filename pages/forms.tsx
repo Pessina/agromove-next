@@ -78,7 +78,7 @@ const FormsPage: React.FC = () => {
 
   return (
     <form
-      className="h-screen flex flex-col gap-4 items-center mt-16 max-w-[350px] mx-auto"
+      className="h-screen flex flex-col gap-4 items-center mt-16 max-w-[350px] mx-auto w-full"
       onSubmit={(e) => {
         e.preventDefault();
         onSubmit();

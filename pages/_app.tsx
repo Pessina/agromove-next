@@ -18,7 +18,7 @@ const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <div className="font-barlow flex flex-col">
+    <div className="font-barlow flex flex-col min-h-screen">
       <Header
         className="px-4 md:px-8 lg:px-16 shrink-0"
         menuItems={{

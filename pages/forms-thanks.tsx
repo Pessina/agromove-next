@@ -9,7 +9,7 @@ const FormsPage: React.FC = () => {
   const { t } = useTranslation("", { keyPrefix: "formsThanks" });
 
   return (
-    <div className="py-[120px] flex flex-col items-center">
+    <div className="py-[120px] flex flex-col items-center text-center space-y-2">
       <h2 className="font-semibold text-xl">{t("title")}</h2>
       <p>{t("subtitle")}</p>
       <Button className="mt-2">
