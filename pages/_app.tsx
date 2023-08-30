@@ -2,7 +2,6 @@ import "../styles/globals.css";
 
 import { AppProps } from "next/app";
 import { appWithTranslation, useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
@@ -43,13 +42,5 @@ const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
     </div>
   );
 };
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
-    },
-  };
-}
 
 export default appWithTranslation(Layout);
