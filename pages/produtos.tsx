@@ -67,7 +67,7 @@ const ProductsPage: React.FC = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }

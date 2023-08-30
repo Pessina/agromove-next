@@ -1,8 +1,15 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React, { lazy, useMemo } from "react";
+import React, { useMemo } from "react";
 
+import GridCards from "../components/general/GridCards";
+import Hero from "../components/general/Hero";
+import Review from "../components/general/Review";
+import Contact from "../components/home/Contact";
 import MainSection from "../components/home/MainSection";
+import MediaSection from "../components/home/MediaSection";
+import SupportSection from "../components/home/SupportSection";
+import Video from "../components/home/VideoSection";
 import avatarAlberto from "../public/images/avatar_alberto.jpg";
 import avatarFelipeMoura from "../public/images/avatar_felipe_moura.jpg";
 import avatarFlavio from "../public/images/avatar_flavio.png";
@@ -24,14 +31,6 @@ import logoVFL from "../public/images/logo-vfl.png";
 import probabilidadeQuedaBoi from "../public/images/probabilidade_queda_boi.jpg";
 import tabelaProbabilidadeQueda from "../public/images/tabela_probabilidade_queda.jpg";
 import avatarTiago from "../public/images/tiago-avatar.jpg";
-
-const Review = lazy(() => import("../components/general/Review"));
-const GridCards = lazy(() => import("../components/general/GridCards"));
-const Hero = lazy(() => import("../components/general/Hero"));
-const Contact = lazy(() => import("../components/home/Contact"));
-const MediaSection = lazy(() => import("../components/home/MediaSection"));
-const SupportSection = lazy(() => import("../components/home/SupportSection"));
-const Video = lazy(() => import("../components/home/VideoSection"));
 
 const logosMedia = [
   logoAgromais,
