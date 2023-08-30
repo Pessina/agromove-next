@@ -4,7 +4,7 @@ import React from "react";
 const CustomDocument: React.FC = () => {
   return (
     <Html lang="pt">
-      <Head title="Agromove - Maximize os lucros da sua fazenda">
+      <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -25,6 +25,7 @@ const CustomDocument: React.FC = () => {
             clientes a tomarem decisões lucrativas em mercados turbulentos."
         />
       </Head>
+      <title>Agromove - Maximize os lucros da sua fazenda</title>
       <body>
         <Main />
         <NextScript />

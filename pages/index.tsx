@@ -158,7 +158,12 @@ const IndexPage: React.FC = () => {
           text={t("review2.text")}
         />
       </div>
-      <Video id="hd2Yg4NU1Aw" title={t("video.title")} className="mt-8" />
+      <Video
+        id="hd2Yg4NU1Aw"
+        title={t("video.title")}
+        className="mt-8"
+        elementId="hd2Yg4NU1Aw"
+      />
       <MediaSection
         logosMedia={logosMedia}
         i18n={{
@@ -191,7 +196,7 @@ const IndexPage: React.FC = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "footer"])),
+      ...(await serverSideTranslations(locale, ["common"])),
     },
   };
 }
