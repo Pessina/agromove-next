@@ -33,7 +33,7 @@ const MediaSection = lazy(() => import("../components/home/MediaSection"));
 const SupportSection = lazy(() => import("../components/home/SupportSection"));
 const Video = lazy(() => import("../components/home/VideoSection"));
 
-const logosMidia = [
+const logosMedia = [
   logoAgromais,
   logoCompreRural,
   logoFieldView,
@@ -161,7 +161,7 @@ const IndexPage: React.FC = () => {
       </div>
       <Video id="hd2Yg4NU1Aw" title={t("video.title")} className="mt-8" />
       <MediaSection
-        logosMidia={logosMidia}
+        logosMedia={logosMedia}
         i18n={{
           title: t("mediaSection.title"),
           seeNews: t("mediaSection.seeNews"),

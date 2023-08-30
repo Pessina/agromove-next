@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import YouTube from "react-youtube";
-
-import LoaderSpinner from "../general/Loader";
 
 type VideoSectionProps = {
   title: string;
@@ -14,8 +12,6 @@ const VideoSection: React.FC<VideoSectionProps> = ({
   id,
   className,
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <div
       className={`${className} flex flex-col items-center gap-10 text-center`}
@@ -33,11 +29,9 @@ const VideoSection: React.FC<VideoSectionProps> = ({
                 autoplay: 0,
               },
             }}
-            onReady={() => setIsLoading(false)}
           />
         </div>
       </div>
-      {isLoading && <LoaderSpinner />}
     </div>
   );
 };

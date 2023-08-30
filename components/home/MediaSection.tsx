@@ -12,7 +12,7 @@ export type MediaSectionPropsI18N = {
 };
 
 export type MediaSectionProps = {
-  logosMidia: { src: string }[];
+  logosMedia: { src: string }[];
   i18n: MediaSectionPropsI18N;
 };
 
@@ -33,12 +33,12 @@ const settings: Settings = {
   ],
 };
 
-const MediaSection: React.FC<MediaSectionProps> = ({ logosMidia, i18n }) => {
+const MediaSection: React.FC<MediaSectionProps> = ({ logosMedia, i18n }) => {
   return (
     <div className="max-w-[90%] md:max-w-[1200px] text-center space-y-8">
       <h2 className="text-3xl font-bold">{i18n.title}</h2>
       <Slider {...settings}>
-        {logosMidia.map((element) => (
+        {logosMedia.map((element) => (
           <div key={element.src}>
             <Image
               alt="midia images"
