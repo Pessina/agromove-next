@@ -1,5 +1,4 @@
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +16,7 @@ export type MediaSectionProps = {
 };
 
 const settings: Settings = {
+  arrows: false,
   infinite: true,
   autoplay: true,
   speed: 500,
