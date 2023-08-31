@@ -51,7 +51,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({ logosMedia, i18n }) => {
           </div>
         ))}
       </Slider>
-      <div className="text-blue-500">
+      <div className="text-blue-800">
         <Link href="https://blog.agromove.com.br/agromove-na-midia/">
           {i18n.seeNews}
         </Link>

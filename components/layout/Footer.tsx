@@ -14,18 +14,22 @@ const links = [
   {
     icon: <FacebookIcon />,
     url: "https://www.facebook.com/Agromove/",
+    ariaLabel: "Facebook",
   },
   {
     icon: <LinkedInIcon />,
     url: "https://www.linkedin.com/company/agromove/",
+    ariaLabel: "LinkedIn",
   },
   {
     icon: <InstagramIcon />,
     url: "https://www.instagram.com/agromove/?hl=pt-br",
+    ariaLabel: "Instagram",
   },
   {
     icon: <YouTubeIcon />,
     url: "https://www.youtube.com/channel/UCjLsgqGSx3F51IKU3TD___g",
+    ariaLabel: "YouTube",
   },
 ];
 
@@ -57,7 +61,13 @@ const Footer: React.FC<FooterProps> = ({ i18n, className = "" }) => {
         </a>
         <div className="mt-4 flex gap-3">
           {links.map((link) => (
-            <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
+            <a
+              key={link.url}
+              href={link.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={link.ariaLabel}
+            >
               {link.icon}
             </a>
           ))}

@@ -70,18 +70,19 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
             className="h-[40px] w-auto"
           />
         </Link>
-        <div className="hidden lg:flex items-center h-full">
+        <ul className="hidden lg:flex items-center h-full">
           {menuItemsArr.map((item) => (
             <Link
-              href={item.href}
+              as={"li"}
               key={item.href}
+              href={item.href}
               className="text-black opacity-70 h-full px-2 hover:bg-gray-100 hover:text-black
               flex items-center"
             >
               {item.name}
             </Link>
           ))}
-        </div>
+        </ul>
       </div>
       {hasLoginButton && (
         <Link href="https://agromove.sharepoint.com/sites/AgromovePremium">
@@ -91,6 +92,7 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
       <Sidebar
         trigger={
           <button
+            aria-label="Menu"
             className="lg:hidden"
             onClick={() => setIsSidebarOpen((prev) => !prev)}
           >
@@ -103,6 +105,7 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
       >
         <ul className="flex flex-col">
           <Link
+            as={"li"}
             href="/"
             passHref
             className="mb-6 px-4 mt-4"
@@ -118,9 +121,10 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
           </Link>
           {menuItemsArr.map((item) => (
             <Link
+              as={"li"}
+              key={item.href}
               onClick={() => setIsSidebarOpen(false)}
               href={item.href}
-              key={item.href}
               className="text-black opacity-70 h-12 px-4 py-2 hover:bg-gray-100 hover:text-black
               flex items-center w-full border-b-[1px] border-gray-300"
             >

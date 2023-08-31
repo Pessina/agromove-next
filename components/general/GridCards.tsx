@@ -33,7 +33,7 @@ const GridCards: React.FC<GridCardsProps> = ({ className = "", cards }) => {
           content={
             <>
               <Image
-                alt={card.icon.alt}
+                alt={card.icon.alt ?? ""}
                 src={card.icon.src}
                 height={200}
                 width={200}
