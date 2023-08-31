@@ -102,6 +102,7 @@ const FormsPage: React.FC = () => {
       <Input
         label={t("fields.phone.label") ?? ""}
         placeholder={t("fields.phone.placeholder") ?? ""}
+        type="number"
         error={errors.phone?.message}
         className="w-full"
         {...register("phone", { required: true })}
