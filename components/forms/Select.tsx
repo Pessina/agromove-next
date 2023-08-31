@@ -12,14 +12,16 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
 
 const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ className = "", label, width = "full", error, ...props }, ref) => {
-    const selectClassName = `border-[1px] rounded-lg border-gray-200 px-3 py-2 w-full ${
-      error ? "border-red-500" : ""
-    } ${className}`;
-
     return (
       <div className={`${width === "full" ? "w-full" : "w-fit"}`}>
         {label && <Label text={label} />}
-        <select {...props} ref={ref} className={selectClassName} />
+        <select
+          {...props}
+          ref={ref}
+          className={`border-[1px] rounded-lg border-gray-200 px-3 py-2 w-full 
+          ${error ? "border-red-500" : ""}
+          ${className}`}
+        />
         {error && <Error message={error} />}
       </div>
     );

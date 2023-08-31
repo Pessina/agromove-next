@@ -1,16 +1,16 @@
 import React, { ReactNode } from "react";
 
-type GridCardsProps = {
-  content: ReactNode;
+type CardProps = {
+  children: ReactNode;
   className?: string;
 };
 
-const GridCards: React.FC<GridCardsProps> = ({ content, className = "" }) => {
+const Card: React.FC<CardProps> = ({ children, className = "" }) => {
   return (
     <div className={`${className} rounded-md shadow-md p-8 text-center`}>
-      {content}
+      {children}
     </div>
   );
 };
 
-export default GridCards;
+export default Card;

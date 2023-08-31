@@ -12,14 +12,16 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className = "", label, width = "full", error, ...props }, ref) => {
-    const inputClassName = `border-[1px] rounded-lg border-gray-200 px-3 py-2 w-full ${
-      error ? "border-red-500" : ""
-    } ${className}`;
-
     return (
       <div className={`${width === "full" ? "w-full" : "w-fit"}`}>
         {label && <Label text={label} />}
-        <input {...props} ref={ref} className={inputClassName} />
+        <input
+          {...props}
+          ref={ref}
+          className={`border-[1px] rounded-lg border-gray-200 px-3 py-2
+          ${error ? "border-red-500" : ""} 
+          ${className}`}
+        />
         {error && <Error message={error} />}
       </div>
     );

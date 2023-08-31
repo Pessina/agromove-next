@@ -30,25 +30,22 @@ const GridCards: React.FC<GridCardsProps> = ({ className = "", cards }) => {
         <Card
           className="flex flex-col items-center justify-center gap-3"
           key={index}
-          content={
-            <>
-              <Image
-                alt={card.icon.alt ?? ""}
-                src={card.icon.src}
-                height={200}
-                width={200}
-                className="h-[72px] w-auto"
-              />
-              <h3 className="text-lg font-semibold">{card.title}</h3>
-              <p className="text-sm grow">{card.text}</p>
-              {!!card.cta && !!card.link && (
-                <Link href={card.link} passHref>
-                  <Button className="lg:w-[250px]">{card.cta}</Button>
-                </Link>
-              )}
-            </>
-          }
-        />
+        >
+          <Image
+            alt={card.icon.alt ?? ""}
+            src={card.icon.src}
+            height={200}
+            width={200}
+            className="h-[72px] w-auto"
+          />
+          <h3 className="text-lg font-semibold">{card.title}</h3>
+          <p className="text-sm grow">{card.text}</p>
+          {card.cta && card.link && (
+            <Link href={card.link} passHref>
+              <Button className="lg:w-[250px]">{card.cta}</Button>
+            </Link>
+          )}
+        </Card>
       ))}
     </div>
   );

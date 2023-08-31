@@ -5,6 +5,8 @@ import Link from "next/link";
 import React from "react";
 import Slider, { Settings } from "react-slick";
 
+import Section from "../general/Section";
+
 export type MediaSectionPropsI18N = {
   title: string;
   seeNews: string;
@@ -35,8 +37,7 @@ const settings: Settings = {
 
 const MediaSection: React.FC<MediaSectionProps> = ({ logosMedia, i18n }) => {
   return (
-    <div className="max-w-[90%] md:max-w-[1200px] text-center space-y-8">
-      <h2 className="text-3xl font-bold">{i18n.title}</h2>
+    <Section className="max-w-[90%] md:max-w-[1200px]" title={i18n.title}>
       <Slider {...settings}>
         {logosMedia.map((element) => (
           <div key={element.src}>
@@ -56,7 +57,7 @@ const MediaSection: React.FC<MediaSectionProps> = ({ logosMedia, i18n }) => {
           {i18n.seeNews}
         </Link>
       </div>
-    </div>
+    </Section>
   );
 };
 

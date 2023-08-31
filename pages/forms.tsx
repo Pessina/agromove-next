@@ -89,18 +89,21 @@ const FormsPage: React.FC = () => {
         label={t("fields.name.label") ?? ""}
         placeholder={t("fields.name.placeholder") ?? ""}
         error={errors.name?.message}
+        className="w-full"
         {...register("name", { required: true })}
       />
       <Input
         label={t("fields.email.label") ?? ""}
         placeholder={t("fields.email.placeholder") ?? ""}
         error={errors.email?.message}
+        className="w-full"
         {...register("email", { required: true })}
       />
       <Input
         label={t("fields.phone.label") ?? ""}
         placeholder={t("fields.phone.placeholder") ?? ""}
         error={errors.phone?.message}
+        className="w-full"
         {...register("phone", { required: true })}
         onChange={(event) => {
           event.target.value = formatPhone(event.target.value);
@@ -118,11 +121,9 @@ const FormsPage: React.FC = () => {
           </option>
         ))}
       </Select>
-      <div>
-        <Button className="md:w-[250px] py-3 px-auto" type="submit">
-          {t("cta")}
-        </Button>
-      </div>
+      <Button className="md:w-[250px] py-3 px-auto" type="submit">
+        {t("cta")}
+      </Button>
     </form>
   );
 };

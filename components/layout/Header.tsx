@@ -72,15 +72,17 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
         </Link>
         <ul className="hidden lg:flex items-center h-full">
           {menuItemsArr.map((item) => (
-            <Link
-              as={"li"}
+            <li
               key={item.href}
-              href={item.href}
-              className="text-black opacity-70 h-full px-2 hover:bg-gray-100 hover:text-black
-              flex items-center"
+              className="text-black opacity-70 px-2 hover:bg-gray-100 h-full"
             >
-              {item.name}
-            </Link>
+              <Link
+                href={item.href}
+                className="h-full w-full flex items-center"
+              >
+                {item.name}
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
@@ -106,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
         onClose={() => setIsSidebarOpen(false)}
         contentClassName="w-[250px]"
       >
-        <ul className="flex flex-col">
+        <ul className="flex flex-col items-center">
           <li>
             <Link
               href="/"
@@ -124,13 +126,15 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
             </Link>
           </li>
           {menuItemsArr.map((item) => (
-            <li key={item.href}>
+            <li
+              key={item.href}
+              className="text-black opacity-70 h-12 px-4 py-2 w-full border-b-[1px] border-gray-300"
+            >
               <Link
                 key={item.href}
                 onClick={() => setIsSidebarOpen(false)}
                 href={item.href}
-                className="text-black opacity-70 h-12 px-4 py-2 hover:bg-gray-100 hover:text-black
-              flex items-center w-full border-b-[1px] border-gray-300"
+                className="block h-full w-full"
               >
                 {item.name}
               </Link>

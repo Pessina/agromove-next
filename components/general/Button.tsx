@@ -9,23 +9,22 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { children, className = "", theme = ButtonTheme.GREEN, ...rest },
-  ref
-) {
-  return (
-    <button
-      {...rest}
-      ref={ref}
-      className={`px-4 py-2 rounded-md font-semibold text-sm md:text-base
-      ${className} 
-      ${rest.disabled ? "bg-gray-100" : ""}
-      ${theme === ButtonTheme.GREEN ? "bg-green-800 text-white" : ""}`}
-    >
-      {children}
-    </button>
-  );
-});
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, className = "", theme = ButtonTheme.GREEN, ...rest }, ref) => {
+    return (
+      <button
+        {...rest}
+        ref={ref}
+        className={`px-4 py-2 rounded-md font-semibold text-sm md:text-base
+        ${className} 
+        ${rest.disabled ? "bg-gray-100" : ""}
+        ${theme === ButtonTheme.GREEN ? "bg-green-800 text-white" : ""}`}
+      >
+        {children}
+      </button>
+    );
+  }
+);
 
 Button.displayName = "Button";
 

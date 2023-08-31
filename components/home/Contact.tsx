@@ -1,5 +1,6 @@
 import React from "react";
 
+import Section from "../general/Section";
 import EmailForm, { EmailFormI18N } from "./EmailForm";
 
 type ContactProps = {
@@ -12,14 +13,16 @@ type ContactProps = {
 
 const Contact: React.FC<ContactProps> = ({ i18n }) => {
   return (
-    <div className="flex flex-col items-center justify-center py-10 gap-2 md:gap-4 max-w-[700px] text-center">
-      <h2 className="text-xl md:text-3xl font-bold">{i18n.title}</h2>
-      <p className="md:text-lg">{i18n.subtitle}</p>
+    <Section
+      className="max-w-[700px]"
+      title={i18n.title}
+      subtitle={i18n.subtitle}
+    >
       <EmailForm
         i18n={i18n.emailForm}
         className="px-auto py-5 flex items-center flex-col justify-center"
       />
-    </div>
+    </Section>
   );
 };
 

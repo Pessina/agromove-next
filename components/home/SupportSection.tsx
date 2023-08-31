@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 
+import Section from "../general/Section";
+
 interface Logo {
   logo: {
     src: string;
@@ -19,8 +21,7 @@ interface SupportSectionProps {
 
 const SupportSection: React.FC<SupportSectionProps> = ({ logos, i18n }) => {
   return (
-    <div className="text-center">
-      <h2 className="text-2xl font-bold mb-8">{i18n.title}</h2>
+    <Section title={i18n.title}>
       <div className="flex flex-col md:flex-row gap-10">
         {logos.map((logo, index) => (
           <div key={index} className="flex flex-col justify-center">
@@ -35,7 +36,7 @@ const SupportSection: React.FC<SupportSectionProps> = ({ logos, i18n }) => {
           </div>
         ))}
       </div>
-    </div>
+    </Section>
   );
 };
 
