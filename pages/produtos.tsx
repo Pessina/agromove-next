@@ -27,7 +27,7 @@ const ProductsPage: React.FC = () => {
         title: t("1.title"),
         text: t("1.text"),
         cta: t("1.cta"),
-        link: "https://materiais.agromove.com.br/mentoria-mercado-futuro",
+        link: "https://blog.agromove.com.br/mentorias/",
       },
       {
         icon: information,
