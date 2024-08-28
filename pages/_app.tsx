@@ -5,6 +5,7 @@ import { appWithTranslation, useTranslation } from "next-i18next";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
+import WhatsAppButton from "../components/general/WhatsAppButton";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 
@@ -38,6 +39,10 @@ const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
           whatsapp: (number: string) => tFooter("whatsapp", { number }),
           email: (email: string) => tFooter("email", { email }),
         }}
+      />
+      <WhatsAppButton
+        phoneNumber="+5519998589988"
+        message="Olá, gostaria de receber mais informações sobre a Agromove!"
       />
     </div>
   );
