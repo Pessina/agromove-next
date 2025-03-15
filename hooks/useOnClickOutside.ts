@@ -4,7 +4,7 @@ type Event = MouseEvent | TouchEvent;
 
 export const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
   handler: (event: Event) => void,
-  refs: RefObject<T>[] | RefObject<T>,
+  refs: RefObject<T | null>[] | RefObject<T | null>,
   isEnabled: boolean = true
 ) => {
   const refsArray = useMemo(

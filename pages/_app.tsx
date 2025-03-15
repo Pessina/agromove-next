@@ -2,6 +2,7 @@ import "../styles/globals.css";
 
 import { AppProps } from "next/app";
 import { appWithTranslation, useTranslation } from "next-i18next";
+import nextI18NextConfig from "../next-i18next.config.js";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
@@ -48,4 +49,4 @@ const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-export default appWithTranslation(Layout);
+export default appWithTranslation(Layout, nextI18NextConfig);

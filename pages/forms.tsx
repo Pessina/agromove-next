@@ -112,7 +112,6 @@ const FormsPage: React.FC = () => {
       />
       <Select
         label={t("fields.area.label") ?? ""}
-        placeholder={t("fields.area.placeholder") ?? ""}
         error={errors.area?.message}
         {...register("area", { required: true })}
       >
