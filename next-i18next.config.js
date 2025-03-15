@@ -4,6 +4,6 @@ module.exports = {
     defaultLocale: "pt",
   },
   react: {
-    useSuspense: false
-  }
+    useSuspense: false,
+  },
 };

@@ -25,7 +25,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {error && <Error message={error} />}
       </div>
     );
-  }
+  },
 );
 
 Select.displayName = "Select";

@@ -25,7 +25,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {error && <Error message={error} />}
       </div>
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

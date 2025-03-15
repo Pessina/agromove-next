@@ -12,7 +12,7 @@ export const useLazyLoad = (elementId) => {
       },
       {
         rootMargin: "100px",
-      }
+      },
     );
 
     const target = document.getElementById(elementId);

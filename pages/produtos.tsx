@@ -58,7 +58,7 @@ const ProductsPage: React.FC = () => {
         link: "https://materiais.agromove.com.br/in-company",
       },
     ],
-    [t]
+    [t],
   );
 
   return <GridCards className="mt-16" cards={cardsFeatures} />;

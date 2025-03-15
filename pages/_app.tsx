@@ -2,13 +2,13 @@ import "../styles/globals.css";
 
 import { AppProps } from "next/app";
 import { appWithTranslation, useTranslation } from "next-i18next";
-import nextI18NextConfig from "../next-i18next.config.js";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 
 import WhatsAppButton from "../components/general/WhatsAppButton";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
+import nextI18NextConfig from "../next-i18next.config.js";
 
 const Layout: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { t } = useTranslation("", { keyPrefix: "app" });

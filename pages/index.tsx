@@ -82,7 +82,7 @@ const IndexPage: React.FC = () => {
         text: t("gridCards.2.text"),
       },
     ],
-    [t]
+    [t],
   );
 
   return (

@@ -39,7 +39,7 @@ const FormsPage: React.FC = () => {
           .matches(/^\(\d{2}\) \d{4,5}-\d{4}$/, tValidation("invalid") ?? ""),
         area: Yup.string().required(tValidation("required") ?? ""),
       }),
-    [tValidation]
+    [tValidation],
   );
 
   const {
@@ -65,9 +65,9 @@ const FormsPage: React.FC = () => {
         const valueAndText = t(`fields.area.options.${number}`);
         return { value: valueAndText, text: valueAndText, key: number };
       }),
-    [t]
+    [t],
   );
-  
+
   const phoneValue = watch("phone");
 
   const onSubmit = handleSubmit((data: FormData) => {
@@ -75,7 +75,7 @@ const FormsPage: React.FC = () => {
       "service_o4yhuhe",
       "template_bt2mm3i",
       data as unknown as Record<string, unknown>,
-      "xbaZfwiULKePuD2cD"
+      "xbaZfwiULKePuD2cD",
     );
     router.push("/forms-thanks");
   });

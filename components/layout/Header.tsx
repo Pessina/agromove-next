@@ -53,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ className = "", menuItems }) => {
         href: "https://blog.agromove.com.br/webinars/",
       },
     ],
-    [menuItems]
+    [menuItems],
   );
 
   return (
