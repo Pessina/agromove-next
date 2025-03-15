@@ -14,13 +14,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.{json,css,md}": [
-      "prettier --write"
-    ]
+    "*.{js,jsx,ts,tsx}": "prettier --write",
+    "*.{json,css,md}": "prettier --write"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -48,7 +43,7 @@
     "@types/react-dom": "^19.0.4",
     "@types/react-gtm-module": "^2.0.4",
     "@types/react-slick": "^0.23.13",
-    "eslint": "^9.22.0",
+    "eslint": "^8.57.1",
     "eslint-config-next": "15.2.2",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.3",
