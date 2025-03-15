@@ -46,6 +46,8 @@ const FormsPage: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch,
   } = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -65,6 +67,8 @@ const FormsPage: React.FC = () => {
       }),
     [t]
   );
+  
+  const phoneValue = watch("phone");
 
   const onSubmit = handleSubmit((data: FormData) => {
     emailjs.send(
@@ -102,13 +106,15 @@ const FormsPage: React.FC = () => {
       <Input
         label={t("fields.phone.label") ?? ""}
         placeholder={t("fields.phone.placeholder") ?? ""}
-        type="number"
+        type="tel"
         error={errors.phone?.message}
         className="w-full"
-        {...register("phone", { required: true })}
-        onChange={(event) => {
-          event.target.value = formatPhone(event.target.value);
+        value={phoneValue}
+        onChange={(e) => {
+          const formattedValue = formatPhone(e.target.value);
+          setValue("phone", formattedValue, { shouldValidate: true });
         }}
+        inputMode="numeric"
       />
       <Select
         label={t("fields.area.label") ?? ""}
