@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 
-import { AppProps } from "next/app";
 import { appWithTranslation, useTranslation } from "next-i18next";
+import { AppProps } from "next/app";
 import React, { useEffect } from "react";
 import TagManager from "react-gtm-module";
 

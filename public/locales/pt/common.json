@@ -11,6 +11,7 @@
   },
   "forms": {
     "cta": "Falar com um consultor",
+    "submitting": "Enviando...",
     "fields": {
       "area": {
         "label": "Qual a sua área de atuação?",

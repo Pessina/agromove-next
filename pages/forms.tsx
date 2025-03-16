@@ -1,9 +1,8 @@
-import emailjs from "@emailjs/browser";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import React, { useMemo } from "react";
+import { useRouter } from "next/router";
+import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 
@@ -26,6 +25,9 @@ const FormsPage: React.FC = () => {
   const {
     query: { keyword },
   } = router;
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const validationSchema = useMemo(
     () =>
@@ -70,14 +72,35 @@ const FormsPage: React.FC = () => {
 
   const phoneValue = watch("phone");
 
-  const onSubmit = handleSubmit((data: FormData) => {
-    emailjs.send(
-      "service_o4yhuhe",
-      "template_bt2mm3i",
-      data as unknown as Record<string, unknown>,
-      "xbaZfwiULKePuD2cD",
-    );
-    router.push("/forms-thanks");
+  const onSubmit = handleSubmit(async (data: FormData) => {
+    try {
+      setIsSubmitting(true);
+      setSubmitError("");
+
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message);
+      }
+
+      router.push("/forms-thanks");
+    } catch (error) {
+      setSubmitError(
+        typeof error === "object" && error !== null && "message" in error
+          ? String(error.message)
+          : "Failed to submit form",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   });
 
   return (
@@ -127,9 +150,15 @@ const FormsPage: React.FC = () => {
           </option>
         ))}
       </Select>
-      <Button className="md:w-[250px] py-3 px-auto" type="submit">
-        {t("cta")}
+      <Button
+        className="md:w-[250px] py-3 px-auto"
+        type="submit"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? t("submitting") || "Submitting..." : t("cta")}
       </Button>
+
+      {submitError && <div className="text-red-500 mt-2">{submitError}</div>}
     </form>
   );
 };

@@ -7,8 +7,6 @@ module.exports = {
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "prettier/prettier": "error",
-    "simple-import-sort/exports": "error",
-    "simple-import-sort/imports": "error",
     "no-undef": "error",
   },
 };
